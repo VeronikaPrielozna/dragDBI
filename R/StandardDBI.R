@@ -17,7 +17,6 @@
 #'
 #' StandardDBI(DBI_Data, type = "mean")
 
-# HEllO
 StandardDBI<-function(df, UD=F, type, data="DBI"){
   table1<-matrix(nrow = 1, ncol = 1)
   table_cal<-matrix(nrow = 1)
