@@ -92,7 +92,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
     plot(NULL,ylim = c(minP,maxP),xlim = c(1,ncol(table1))
          , xlab = "", xaxt = "n", ylab = "potDBI")
 
-    points(c(1:ncol(table1)), table1[1,], pch = 16)
+    points(c(1:ncol(table1)), table1[2,], pch = 16)
 
     axis(1,at=1:ncol(table1),lab=colnames(table1),las=2)
 
