@@ -106,7 +106,8 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
   }
 
   print("DBI potencial a true DBI potential")
-  table2<-as.data.frame(row=c(table1[2,], table1[3], table1[1,], table1[4]))
+  tabule2<-matrix(nrow = 1, ncol = ncol(table1))
+  tabule2<-rbind(table1[2,], table1[3], table1[1,], table1[4])
   colnames(table2)<-colnames(table1)
   print(table2)
   table2
