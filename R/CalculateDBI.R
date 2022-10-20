@@ -15,7 +15,7 @@
 #'
 #' CalculateDBI(DBI_Data, DBI_val = "CE", plot = T)
 
-CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
+CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   hist_names<-as.vector(names(df))
 
   if (DBI_val=="CE"){
@@ -50,7 +50,9 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
   c1<-c(1:3)
   c2<-c((length(table_package)-2):length(table_package))
   table1<-matrix(nrow = 3, ncol = 2)
+  table2<-matrix(nrow = 2, ncol = 2)
   table_cal<-matrix(nrow = 3)
+  table_cal1<-matrix(nrow = 3)
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
@@ -70,16 +72,26 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     table_cal<-rbind(sum.dbi, mean.dbi, nase.dbi)
     table1<-cbind(table1,table_cal)
-
-    if(plot==T){
-      hist(vec1, main = paste("Permutational DBI and potential for", hist_names[i]), breaks = 20, xlim = c(0,max(vec1)+8),
-           cex.main = 1, xlab = " ", ylab = " ")
-      title(ylab="Frequency", line = 3, cex = 1)
-      abline(v=sum.dbi, lwd=3)
     }
-  }
+  for (i in 1:(ncol(df)-COLnum1)){
+      i<-i+COLnum1
+      j<-nrow(df)-sum(df[,i]==0)
+      k<-which('0' != df[,i])
+      k<-table_user[k]
+      sum.DBI<-sum(as.numeric(table_user[k]))
+      potDBI<-(sum(vec.nase.dbi)/sum(decr[1:length(k)]))
+      trupotDBI<-((sum(vec.nase.dbi)-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
+      Pmax<-sum(decr[1:length(k)])
+      Pmin<-sum(incr[1:length(k)])
+
+      table_cal1<-rbind(potDBI, trupotDBI)
+      table2<-cbind(table1,table_cal1)
+    }
+
+  table1<-rbind(table2[1,], table2[2,])
   table1<-table1[,3:ncol(table1)]
   colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
+  rownames(table1)<-rownames("Sum of DBI", "Mean of DBI", "Permutational DBI and potential", "Potential of DBI", "True DBI potential")
 
   cat("Calculated set of DBI valuess","\n")
   print(table1)

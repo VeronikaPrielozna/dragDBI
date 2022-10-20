@@ -4,7 +4,7 @@
 \alias{CalculateDBI}
 \title{Main function calculating set of DBI values for dragonfly communities}
 \usage{
-CalculateDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000, plot = T)
+CalculateDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000)
 }
 \arguments{
 \item{plot}{}
