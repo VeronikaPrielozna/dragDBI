@@ -12,7 +12,7 @@
 #' @examples
 #' # Calculate set of DBI values for the Highway stormwater and control ponds dataset
 #'
-#' CalculateDBI(DBI_Data, DBI_val = "CE", plot = T)
+#' CalculateDBI(DBI_Data, DBI_val = "CE")
 
 CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   hist_names<-as.vector(names(df))
