@@ -101,7 +101,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
 
   print("DBI potential a true DBI potential")
   table2<-matrix(nrow = 1, ncol = ncol(table1))
-  table2<-rbind(table1[2,], table1[3], table1[1,], table1[4])
+  table2<-rbind(table1[2,], table1[3], table1[1,], table1[4,])
   colnames(table2)<-colnames(table1)
   rownames(table2)<-c("DBI potential", "True DBI potential", "Sum of DBI", "Maximum of the sum of DBI")
   print(table2)

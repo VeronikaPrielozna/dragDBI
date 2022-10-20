@@ -49,6 +49,7 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
       sname<-"DBI"
     }
   }
+  DBI_VAL<-as.numeric(DBI_VAL)
   if(type=="sum"){
     for (i in fcol:ncol(df)){
       j<-nrow(df)-sum(df[,i]==0)
