@@ -6,14 +6,13 @@
 #' @param NAval
 #' @param sim
 #' @param plot
-#' @param arrow
 #'
 #' @return
 #' @export
 #'
 #' @examples
 
-PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
+PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
