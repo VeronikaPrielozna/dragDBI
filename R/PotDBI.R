@@ -15,8 +15,8 @@
 
 PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
   if (DBI_val=="CE"){
-    table_package<-DBI_CE$TOTAL#[-which(DBI_CE$TOTAL=="NA")]
-    #table_package<-as.integer(table_package)
+    table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
+    table_package<-as.integer(table_package)
     table_user<-df$TOTAL
   }
 
