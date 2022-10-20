@@ -4,7 +4,7 @@
 \alias{LoadData}
 \title{Data uploading function}
 \usage{
-LoadData(attrib = T, na2null = T)
+LoadData(attrib = T, na2null = T, pa_data = F)
 }
 \arguments{
 \item{na2null}{}
