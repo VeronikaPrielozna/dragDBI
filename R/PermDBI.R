@@ -13,9 +13,9 @@
 #' @examples
 #' # Calculate the permutational DBI potential for the Highway stormwater and control ponds dataset, comparing the given community to 10 000 randomly assembled communities.
 #'
-#' PermDBI_plus(DBI_Data, DBI_val = "CE", sim = 10000)
+#' Perm(DBI_Data, DBI_val = "CE", sim = 10000)
 
-PermDBI_plus<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
+PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
   hist_names<-as.vector(names(df))
 
   table1<-matrix(nrow = 1, ncol = 1)
