@@ -90,7 +90,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
     maxP<-table1[4,]
     posgr = barplot(as.matrix(table1[1,]), plot = F)
     plot(NULL,ylim = c(min(minP),max(maxP)),xlim = c(1,ncol(table1))
-         , xlab = "", xaxt = "n", ylab = "potDBI")
+         , xlab = "", xaxt = "n", ylab = "Sum of DBI")
 
     points(c(1:ncol(table1)), table1[1,], pch = 16) # tecky ukazijí sumDBI
 
@@ -106,6 +106,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
   }
 
   print("Tabulka pro DBI potencial a true DBI potential")
-  print(table1)
-  table1
+  table2<-as.data.frame(table1[2,], table1[3], table1[1,], table1[4])
+  print(table2)
+  table2
 }
