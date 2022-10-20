@@ -18,8 +18,8 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   hist_names<-as.vector(names(df))
 
   if (DBI_val=="CE"){
-    table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
-    table_package<-as.integer(table_package)
+    table_package<-DBI_CE$TOTAL#[-which(DBI_CE$TOTAL=="NA")]
+    #table_package<-as.integer(table_package)
     table_user<-df$TOTAL
   }
 
@@ -49,9 +49,11 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   c1<-c(1:3)
   c2<-c((length(table_package)-2):length(table_package))
   table1<-matrix(nrow = 3, ncol = 2)
-  table2<-matrix(nrow = 2, ncol = 2)
   table_cal<-matrix(nrow = 3)
-  table_cal1<-matrix(nrow = 3)
+
+  table2<-matrix(nrow = 2, ncol = 2)
+
+  table_cal1<-matrix(nrow = 2)
   decr<-sort(table_package,decreasing=T)
   incr<-sort(table_package,decreasing=F)
   vec.nase.dbi<-vector()
@@ -90,13 +92,13 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
       table_cal1<-rbind(potDBI, trupotDBI)
       table2<-cbind(table2,table_cal1)
     }
-
-  table1<-rbind(table2[1,], table2[2,])
+  table1<-as.data.frame(table1)
+  table1<-rbind(table1, table2[1,], table2[2,])
   table1<-table1[,3:ncol(table1)]
-  colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
-  rownames(table1)<-rownames("Sum of DBI", "Mean of DBI", "Permutational DBI and potential", "Potential of DBI", "True DBI potential")
 
-  cat("Calculated set of DBI valuess","\n")
-  print(table1)
+  colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
+  rownames(table1)<-c("Sum of DBI", "Mean of DBI", "Permutational DBI & potential", "Potential of DBI", "True DBI potential")
+  table1<-round(table1,3)
+  cat("Calculated set of DBI values","\n")
   table1
 }
