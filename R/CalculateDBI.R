@@ -70,7 +70,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
       vec1<-apply(combn(table_package,length(k)), 2, sum)
     }
     else {
-      vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F)))
+      vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
 
     }
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
