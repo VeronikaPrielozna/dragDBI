@@ -97,7 +97,7 @@ PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
     maxP<-table1[4,]/100 # dělila jsem 100!!!!
     posgr = barplot(as.matrix(table1[1,]), plot = F)
     plot(NULL,ylim = c(min(vector_min),max(maxP)),xlim = c(1,ncol(table1))
-         , xlab = "", xaxt = "n", ylab = "potDBI")
+         , xlab = "", xaxt = "n", ylab = "DBI potential")
 
     points(c(1:ncol(table1)), table1[1,], pch = 16) # tecky ukazijí sumDBI
 
