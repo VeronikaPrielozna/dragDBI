@@ -88,7 +88,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
       Pmin<-sum(incr[1:length(k)])
 
       table_cal1<-rbind(potDBI, trupotDBI)
-      table2<-cbind(table1,table_cal1)
+      table2<-cbind(table2,table_cal1)
     }
 
   table1<-rbind(table2[1,], table2[2,])
