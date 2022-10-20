@@ -5,7 +5,6 @@
 #' @param DBI_UD
 #' @param NAval
 #' @param sim
-#' @param plot
 #'
 #' @return
 #' @export
@@ -53,6 +52,9 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   table2<-matrix(nrow = 2, ncol = 2)
   table_cal<-matrix(nrow = 3)
   table_cal1<-matrix(nrow = 3)
+  decr<-sort(table_package,decreasing=T)
+  incr<-sort(table_package,decreasing=F)
+  vec.nase.dbi<-vector()
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
