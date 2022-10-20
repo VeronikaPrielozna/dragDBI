@@ -13,7 +13,7 @@
 #'
 #' @examples
 
-PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
+PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
@@ -103,11 +103,10 @@ PotDBI_C<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
 
     axis(1,at=1:ncol(table1),lab=colnames(table1),las=2)
 
-    if (arrow == T){
-      for (i in 1:ncol(table1)){
+    for (i in 1:ncol(table1)){
         arrows(i,vector_min[i],i,maxP[i],angle=90,code=3,length=0.08)
       }
-    }
+
     table1[4,]<-maxP #
     table1[5,]<-vector_min #přepis minim a maxim
     table1<-round(table1,4)
