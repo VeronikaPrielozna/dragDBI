@@ -7,7 +7,7 @@
 CalculateDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000)
 }
 \arguments{
-\item{plot}{}
+\item{sim}{}
 }
 \description{
 Main function calculating set of DBI values for dragonfly communities
@@ -15,5 +15,5 @@ Main function calculating set of DBI values for dragonfly communities
 \examples{
 # Calculate set of DBI values for the Highway stormwater and control ponds dataset
 
-CalculateDBI(DBI_Data, DBI_val = "CE", plot = T)
+CalculateDBI(DBI_Data, DBI_val = "CE")
 }

@@ -42,9 +42,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
     COLnum2<-6
   }
 
-  c1<-c(1:3)
-  c2<-c((length(table_package)-2):length(table_package))
-
   table1<-matrix(nrow = 5, ncol = 2)
   table_cal<-matrix(nrow = 4)
   decr<-sort(table_package,decreasing=T)
@@ -56,12 +53,9 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
     j<-nrow(df)-sum(df[,i]==0)
     k<-which('0' != df[,i])
     sum.dbi<-sum(as.numeric(table_user[k]))
-    if (j %in% c1 | j %in% c2){
-      vec1<-apply(combn(table_package,j), 2, sum)
-    }
-    else {
-      vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
-    }
+
+    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
+
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
   }

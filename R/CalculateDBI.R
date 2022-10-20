@@ -18,8 +18,8 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   hist_names<-as.vector(names(df))
 
   if (DBI_val=="CE"){
-    table_package<-DBI_CE$TOTAL#[-which(DBI_CE$TOTAL=="NA")]
-    #table_package<-as.integer(table_package)
+    table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
+    table_package<-as.integer(table_package)
     table_user<-df$TOTAL
   }
 
@@ -46,8 +46,6 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
     COLnum2<-6
   }
 
-  c1<-c(1:3)
-  c2<-c((length(table_package)-2):length(table_package))
   table1<-matrix(nrow = 3, ncol = 2)
   table_cal<-matrix(nrow = 3)
 
@@ -66,18 +64,14 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
     mean.dbi<-mean(as.numeric(table_user[k]))
     mean.dbi<-round(mean.dbi,3)
 
-    if (j %in% c1 | j %in% c2){
-      vec1<-apply(combn(table_package,length(k)), 2, sum)
-    }
-    else {
-      vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
+    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
 
-    }
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
     table_cal<-rbind(sum.dbi, mean.dbi, nase.dbi)
     table1<-cbind(table1,table_cal)
-    }
+  }
+
   for (i in 1:(ncol(df)-COLnum1)){
       i<-i+COLnum1
       j<-nrow(df)-sum(df[,i]==0)

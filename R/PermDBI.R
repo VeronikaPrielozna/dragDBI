@@ -50,23 +50,14 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
     COLnum2<-6
   }
 
-  c1<-c(1:3)
-  c2<-c((length(table_package)-2):length(table_package))
-
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
     j<-nrow(df)-sum(df[,i]==0)
     k<-which('0' != df[,i])
     sum.dbi<-sum(as.numeric(table_user[k]))
 
-    if (j %in% c1 | j %in% c2){
-      vec1<-apply(combn(table_package,j), 2, sum)
-    }
-    else {
-      vec1<-replicate(sim, sum(sample(table_package,j, prob = 1/(table_package+1), F)))
+    vec1<-replicate(sim, sum(sample(table_package,j, prob = 1/(table_package+1), F)))
 
-
-    }
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     table_cal<-rbind(nase.dbi)
     table1<-cbind(table1,table_cal)
