@@ -12,7 +12,7 @@
 #'
 #' @examples
 
-PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
+PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T, arrow=T){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
@@ -71,8 +71,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
     j<-nrow(df)-sum(df[,i]==0)
     k<-which('0' != df[,i])
     k<-table_user[k]
-    # sum.DBI<-sum(vec.nase.dbi) OPRAVA NA
-    sum.DBI<-vec.nase.dbi[i-COLnum1]
+    sum.DBI<-sum(as.numeric(table_user[k]))
     potDBI<-(sum(vec.nase.dbi)/sum(decr[1:length(k)]))
     trupotDBI<-((sum(vec.nase.dbi)-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
     Pmax<-sum(decr[1:length(k)])
@@ -87,27 +86,22 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
 
   if (plot == T){
     par(mfrow=c(1,1), mar=c(4,4,2,1))
-    vector_min<-c()
-    for (i in 1:ncol(table1)) {
-      minP<-((min(table1[5,i])*100)/max(table1[4,i]))/100 # převáděla jesm to
-      vector_min<-append(vector_min, minP)
-    }
-
-    maxP<-table1[4,]/100 # dělila jsem 100!!!!
+    minP<-table1[5,]
+    maxP<-table1[4,]
     posgr = barplot(as.matrix(table1[1,]), plot = F)
-    plot(NULL,ylim = c(min(vector_min),max(maxP)),xlim = c(1,ncol(table1))
-         , xlab = "", xaxt = "n", ylab = "DBI potential")
+    plot(NULL,ylim = c(min(minP),max(maxP)),xlim = c(1,ncol(table1))
+         , xlab = "", xaxt = "n", ylab = "potDBI")
 
     points(c(1:ncol(table1)), table1[1,], pch = 16) # tecky ukazijí sumDBI
 
     axis(1,at=1:ncol(table1),lab=colnames(table1),las=2)
 
-    for (i in 1:ncol(table1)){
-        arrows(i,vector_min[i],i,maxP[i],angle=90,code=3,length=0.08)
+    if (arrow == T){
+      for (i in 1:ncol(table1)){
+        arrows(i,minP[i],i,maxP[i],angle=90,code=3,length=0.08)
       }
+    }
 
-    table1[4,]<-maxP #
-    table1[5,]<-vector_min #přepis minim a maxim
     table1<-round(table1,4)
   }
 
