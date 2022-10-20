@@ -72,6 +72,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
 
     }
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
+    vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
     table_cal<-rbind(sum.dbi, mean.dbi, nase.dbi)
     table1<-cbind(table1,table_cal)
     }
