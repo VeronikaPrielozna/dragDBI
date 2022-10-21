@@ -1,0 +1,58 @@
+---
+title: "package 'dragDBI'"
+authors: "Veronika Prieložná,Petr Pyszko <https://orcid.org/0000-0002-3743-7201>"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{"package 'dragDBI'"}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+### Introduction
+The dragDBI package...
+
+### Installation
+The current release (1.0) of the package can be installed from GitHub... pomocí příkazů níže. Homepage je na tomto odkaze
+[https://github.com/VeronikaPrielozna/dragDBI](https://github.com/VeronikaPrielozna/dragDBI)..
+
+```{r, eval = FALSE}
+install.packages("devtools")
+library("devtools")
+install_github("VeronikaPrielozna/dragDBI")
+```
+
+### Data required
+
+### Input format
+Napsat, ze musi byt takova a takova data. Priklad dat can be seen by accessing the built-in 'Data' dataset
+
+```{r}
+# load library
+library("devtools")
+
+# show the format of built-in dataset
+
+```
+
+### Functions
+```{r}
+# Uploading function for user-defined DBI checklist 
+
+```
+
+### Individual index functions
+```{r}
+# dat priklady tech unfkci pro ty jednotlive indexy
+
+```
+
+### Reporting problems
+The package has been tested fairly extensively...
+
+### Source of the information about the indices calculated
+
+
+```{r setup}
+library(dragDBI)
+```
+

@@ -4,7 +4,7 @@
 \alias{PotDBI}
 \title{DBI potential for dragonfly communities}
 \usage{
-PotDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000, plot = T, arrow = T)
+PotDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000, plot = T)
 }
 \arguments{
 \item{plot}{}
