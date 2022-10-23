@@ -9,7 +9,7 @@ vignette: >
 ---
 
 ### Introduction
-The dragDBI package...
+The dragDBI package....
 
 ### Installation
 The current release (1.0) of the package can be installed from GitHub... pomocí příkazů níže. Homepage je na tomto odkaze
