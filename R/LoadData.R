@@ -16,7 +16,7 @@
 #'
 #' x_SA<-LoadData()
 
-LoadData<-function(attrib=T, na2null=T, abunance=T){
+LoadData<-function(attrib=T, na2null=T, abundance=T){
 
   cat(paste("Copy data into clipboard"))
   cat("\n")

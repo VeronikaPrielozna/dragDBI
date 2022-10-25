@@ -34,8 +34,7 @@ LoadDBI<-function(attrib=T){
              }
              cat(paste("Your data:"))
              cat("\n")
-             print(DBI_MD)
-             message("You can continue.")
+
            }
   )
   DBI_MD
