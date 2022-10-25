@@ -85,6 +85,5 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
   par(mfrow=c(1,1), mar=c(4,4,1,1))
   barplot(table2, ylim = c(0,max(table2) + yval), las = 2, ylab = rname, font.main = 1, names.arg = colnames(table2))
   print(rname)
-  print(table2)
   t(table2)
 }

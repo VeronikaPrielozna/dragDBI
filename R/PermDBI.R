@@ -75,6 +75,5 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
   colnames(table2)<-colnames(df[COLnum2:ncol(df)])
   table2<-table2[-1,]
   cat("Permutational DBI and potential","\n")
-  print(table2)
   t(table2)
 }
