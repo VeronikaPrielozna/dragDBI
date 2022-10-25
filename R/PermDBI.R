@@ -56,7 +56,7 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
     k<-which('0' != df[,i])
     sum.dbi<-sum(as.numeric(table_user[k]))
 
-    vec1<-replicate(sim, sum(sample(table_package,j, prob = 1/(table_package+1), F)))
+    vec1<-replicate(sim, sum(sample(table_package,j, prob = 1/(2^table_package), F)))
 
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     table_cal<-rbind(nase.dbi)
