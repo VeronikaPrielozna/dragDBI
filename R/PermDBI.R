@@ -76,5 +76,5 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
   table2<-table2[-1,]
   cat("Permutational DBI and potential","\n")
   print(table2)
-  table2
+  t(table2)
 }
