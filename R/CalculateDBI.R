@@ -64,7 +64,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
     mean.dbi<-mean(as.numeric(table_user[k]))
     mean.dbi<-round(mean.dbi,3)
 
-    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(table_package+1), j, F)))
+    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F)))
 
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
