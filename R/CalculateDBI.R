@@ -94,5 +94,5 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   rownames(table1)<-c("Sum of DBI", "Mean of DBI", "Permutational DBI & potential", "Potential of DBI", "True DBI potential")
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
-  table1
+  t(table1)
 }
