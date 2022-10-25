@@ -46,6 +46,5 @@ LoadData<-function(attrib=T, na2null=T, abundance=T){
     print("Attributes of table")
     print(attributes(x))
   }
-  print(x)
   x
 }

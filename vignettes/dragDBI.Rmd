@@ -36,6 +36,14 @@ library("devtools")
 
 ### Functions
 ```{r}
+# library
+
+library(dragDBI)
+
+```
+
+
+```{r}
 # Uploading user-defined DBI checklist. Saved as DBI_UD. 
 
 DBI_UD<-LoadDBI(attrib=F) 
@@ -57,7 +65,17 @@ DBI_UD<-LoadDBI(attrib=F)
 ```{r}
 # Uploading data containing species of Central Europe. Saved as x_CE.  
 
-x_CE<-LoadData() 
+x_CE<-LoadData(attrib = F) 
+
+```
+
+```{r}
+#                  X Sam1 Sam2 Sam3 Sam4 Sam5
+#      Aeshna mixta    0    1    0    0    0
+# Aeshna subarctica    1    4    1    0    0
+#   Aeshna isoceles    3    6    7    1    0
+#    Anax imperator    0    0    0    2    4
+#   Anax parthenope   14    0    0    0   23
 
 ```
 
