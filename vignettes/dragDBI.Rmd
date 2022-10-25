@@ -42,7 +42,7 @@ library("devtools")
 
 ### Individual index functions
 ```{r}
-# dat priklady tech unfkci pro ty jednotlive indexy
+# dat priklady tech unfkci pro ty jednotlive indexy.
 
 ```
 
