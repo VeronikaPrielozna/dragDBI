@@ -12,7 +12,7 @@
 #'
 #' @examples
 
-PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
+PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=T){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
@@ -97,10 +97,24 @@ PotDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=T){
     table1<-round(table1,4)
   }
 
-  print("DBI potential a true DBI potential")
   table2<-matrix(nrow = 1, ncol = ncol(table1))
   table2<-rbind(table1[2,], table1[3], table1[1,], table1[4,])
   colnames(table2)<-colnames(table1)
   rownames(table2)<-c("DBI potential", "True DBI potential", "Sum of DBI", "Maximum of the sum of DBI")
-  t(table2)
+
+  if (type=="def"){
+    cat("DBI potential a true DBI potential","\n")
+    table3<-t(table2)
+  }
+
+  if(type=="tpDBI"){
+    table3<-t(table2)
+    table3<-table3[,2]
+  }
+
+  if(type=="pDBI"){
+    table3<-t(table2)
+    table3<-table3[,1]
+  }
+  table3
 }
