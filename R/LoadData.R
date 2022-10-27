@@ -16,14 +16,14 @@
 #'
 #' x_SA<-LoadData()
 
-LoadData<-function(attrib=T, na2null=T, abundance=T){
+LoadData<-function(attrib=T, na2null=T, abund=T){
 
   cat(paste("Copy data into clipboard"))
   cat("\n")
   invisible(readline(prompt="Press [enter] to continue"))
   tryCatch(silent=T,
            expr = {
-             x<-read.table("clipboard", h=T, as.is=abundance, sep = "\t")
+             x<-read.table("clipboard", h=T, as.is=abund, sep = "\t")
              message("Dataset successfully uploaded.")
            },
            error = function(e){

@@ -12,7 +12,7 @@
 #'
 #' @examples
 
-PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=T){
+PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=F){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
@@ -54,7 +54,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=T){
     k<-which('0' != df[,i])
     sum.dbi<-sum(as.numeric(table_user[k]))
 
-    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F)))
+    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F))) #2^table_package
 
     nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
@@ -96,9 +96,8 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=T){
 
     table1<-round(table1,4)
   }
-
   table2<-matrix(nrow = 1, ncol = ncol(table1))
-  table2<-rbind(table1[2,], table1[3], table1[1,], table1[4,])
+  table2<-rbind(table1[2,], table1[3,], table1[1,], table1[4,])
   colnames(table2)<-colnames(table1)
   rownames(table2)<-c("DBI potential", "True DBI potential", "Sum of DBI", "Maximum of the sum of DBI")
 
@@ -108,13 +107,16 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=T){
   }
 
   if(type=="tpDBI"){
-    table3<-t(table2)
-    table3<-table3[,2]
+    table3<-table2[2,]
+    table3<-as.data.frame(table3)
+    colnames(table3)<-"tpDBI"
   }
 
   if(type=="pDBI"){
-    table3<-t(table2)
-    table3<-table3[,1]
+    table3<-table2[1,]
+    table3<-as.data.frame(table3)
+    colnames(table3)<-"pDBI"
+
   }
   table3
 }
