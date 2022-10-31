@@ -58,7 +58,7 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
       table_cal<-rbind(dbi.calc)
       table1<-cbind(table1,table_cal)
     }
-    zname<-"Sum_of"
+    zname<-"Sum"
     table1<-round(table1,1)
     yval<-7
   }
@@ -70,7 +70,7 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
       table_cal<-rbind(dbi.calc)
       table1<-cbind(table1,table_cal)
     }
-    zname<-"Mean_of_"
+    zname<-"Mean"
     table1<-round(table1,2)
     yval<-0.5
   }
