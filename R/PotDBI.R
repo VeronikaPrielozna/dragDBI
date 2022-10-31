@@ -48,17 +48,17 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=F){
   incr<-sort(table_package,decreasing=F)
   vec.nase.dbi<-vector()
 
-  for (i in 1:(ncol(df)-COLnum1)){
-    i<-i+COLnum1
-    j<-nrow(df)-sum(df[,i]==0)
-    k<-which('0' != df[,i])
-    sum.dbi<-sum(as.numeric(table_user[k]))
-
-    vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F))) #2^table_package
-
-    nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
-    vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
-  }
+  # for (i in 1:(ncol(df)-COLnum1)){
+  #   i<-i+COLnum1
+  #   j<-nrow(df)-sum(df[,i]==0)
+  #   k<-which('0' != df[,i])
+  #   sum.dbi<-sum(as.numeric(table_user[k]))
+  #
+  #   vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F))) #2^table_package
+  #
+  #   nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
+  #   vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
+  # }
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
@@ -66,8 +66,9 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=F){
     k<-which('0' != df[,i])
     k<-table_user[k]
     sum.DBI<-sum(as.numeric(table_user[k]))
-    potDBI<-(sum(vec.nase.dbi)/sum(decr[1:length(k)]))
-    trupotDBI<-((sum(vec.nase.dbi)-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
+    print(sum.DBI)
+    potDBI<-(sum.DBI/sum(decr[1:length(k)]))
+    trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
     Pmax<-sum(decr[1:length(k)])
     Pmin<-sum(incr[1:length(k)])
 
