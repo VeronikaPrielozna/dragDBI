@@ -66,7 +66,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
 
     vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F)))
 
-    nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
+    nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
     table_cal<-rbind(sum.dbi, mean.dbi, nase.dbi)
     table1<-cbind(table1,table_cal)
@@ -91,7 +91,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   table1<-table1[,3:ncol(table1)]
 
   colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
-  rownames(table1)<-c("Sum of DBI", "Mean of DBI", "Permutational DBI & potential", "Potential of DBI", "True DBI potential")
+  rownames(table1)<-c("Sum of DBI", "Mean of DBI", "Permutational DBI potential", "Potential of DBI", "True DBI potential")
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
   t(table1)

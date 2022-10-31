@@ -56,7 +56,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=F){
 
     vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F))) #2^table_package
 
-    nase.dbi<-round(length(vec1[vec1<=sum.dbi])/(length(vec1)),3)
+    nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
     vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
   }
 
