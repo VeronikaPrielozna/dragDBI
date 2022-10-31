@@ -12,7 +12,7 @@
 #'
 #' @examples
 
-PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, sim=10000, plot=F){
+PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]
     table_package<-as.integer(table_package)
