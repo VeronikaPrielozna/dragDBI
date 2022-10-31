@@ -101,7 +101,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
   cat(" ")
   cat("\n")
 
-  Species<-table_user[,1]
+  Species<-as.factor(table_user[,1])
   table_user<-as.data.frame(sapply(table_user[2:ncol(table_user)], as.numeric))
   table_user<-data.frame(Species, table_user)
   print(table_user)

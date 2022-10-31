@@ -28,17 +28,17 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
     }
     if (data=="SENS"){
       DBI_VAL<-df$Sensitivity
-      sname<-"sensitivity"
+      sname<-"Sensitivity"
     }
 
     if (data=="THR"){
       DBI_VAL<-df$Threat
-      sname<-"shreat"
+      sname<-"Threat"
     }
 
     if (data=="DIST"){
       DBI_VAL<-df$Distribution
-      sname<-"distribution"
+      sname<-"Distribution"
     }
   }
 
@@ -58,7 +58,7 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
       table_cal<-rbind(dbi.calc)
       table1<-cbind(table1,table_cal)
     }
-    zname<-"Sum of"
+    zname<-"Sum_of"
     table1<-round(table1,1)
     yval<-7
   }
@@ -70,11 +70,12 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
       table_cal<-rbind(dbi.calc)
       table1<-cbind(table1,table_cal)
     }
-    zname<-"Mean of"
+    zname<-"Mean_of_"
     table1<-round(table1,2)
     yval<-0.5
   }
-  rname<-paste(zname, sname)
+  rname<-paste(zname,sname)
+  rname<- gsub(" ", "", rname)
   table1<-table1[1,2:ncol(table1)]
   table1<-as.vector(table1)
   table2<-matrix(nrow = 1, ncol = length(table1))
@@ -84,8 +85,9 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
 
   par(mfrow=c(1,1), mar=c(4,4,1,1))
   barplot(table2, ylim = c(0,max(table2) + yval), las = 2, ylab = rname, font.main = 1, names.arg = colnames(table2))
-  print(rname)
+  # print(rname)
   table2<-as.data.frame(table2)
-  colnames(table2)<-" "
+  colnames(table2)<-rname
+  print(table2)
   table2
 }
