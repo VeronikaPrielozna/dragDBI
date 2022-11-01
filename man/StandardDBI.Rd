@@ -4,7 +4,7 @@
 \alias{StandardDBI}
 \title{Standard DBI values for dragonfly communities}
 \usage{
-StandardDBI(df, UD = F, type, data = "DBI")
+StandardDBI(df, UD = F, type, data = "DBI", plot = F)
 }
 \arguments{
 \item{data}{}
