@@ -42,7 +42,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
 
   for (j in 1:nrow(table_user)){
     if (substr(table_user[j,1], nchar(table_user[j,1]), nchar(table_user[j,1]))==" "){
-      table_user[j,1]<-substring(table_user[j,1],1, nchar(table_user[j,1])-1) # odstranění mezery
+      table_user[j,1]<-substring(table_user[j,1],1, nchar(table_user[j,1])-1)
     }
 
     table_user[j,1] %in% table_spec
@@ -50,9 +50,9 @@ UniteData<-function(df, DBI_val, DBI_UD){
       vector_druhy<-vector()
       cat(paste("The species",table_user[j,1], "has error in name."))
       cat("\n")
-      cat(paste("Choose species from the table."))
+      cat(paste("Choose probable species from the table."))
       split <- strsplit(table_user[j,1], " ")
-      now<-sapply(split , length) # number of words, počet slov v názvu
+      now<-sapply(split , length)
 
       prvni<-substr(table_user[j,1], 1, 1)
       pos2<-unlist(gregexpr(' ', table_user[j,1]))[1] + 1

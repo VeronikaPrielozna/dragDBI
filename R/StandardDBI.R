@@ -17,7 +17,7 @@
 #'
 #' StandardDBI(DBI_Data, type = "mean")
 
-StandardDBI<-function(df, UD=F, type, data="DBI"){
+StandardDBI<-function(df, UD=F, type, data="DBI", plot=F){
   table1<-matrix(nrow = 1, ncol = 1)
   table_cal<-matrix(nrow = 1)
   if(UD==F){
@@ -83,8 +83,10 @@ StandardDBI<-function(df, UD=F, type, data="DBI"){
   colnames(table2)<-colnames(df[fcol:ncol(df)])
   table2<-table2[-1,]
 
+  if(plot==T){
   par(mfrow=c(1,1), mar=c(4,4,1,1))
   barplot(table2, ylim = c(0,max(table2) + yval), las = 2, ylab = rname, font.main = 1, names.arg = colnames(table2))
+  }
   table2<-as.data.frame(table2)
   colnames(table2)<-rname
   print(table2)
