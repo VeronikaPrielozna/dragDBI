@@ -1,0 +1,26 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Prieložná"
+  given-names: "Veronika"
+
+- family-names: "Pyszko"
+  given-names: "Petr"
+  orcid: "https://orcid.org/0000-0002-3743-7201"
+
+- family-names: "Šigutová"
+  given-names: "Hana"
+  orcid: "https://orcid.org/0000-0003-1134-248X"
+
+- family-names: "Eva"
+  given-names: "Bílková"
+  orcid: "???"
+
+- family-names: "Aleš"
+  given-names: "Dolný"
+  orcid: "???"
+
+title: " Calculation of Dragonfly Biotic Index for Odonata communities"
+version: 1.0
+date-released: 2022-09-30
+url: "https://github.com/VeronikaPrielozna/dragDBI"
