@@ -48,17 +48,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   incr<-sort(table_package,decreasing=F)
   vec.nase.dbi<-vector()
 
-  # for (i in 1:(ncol(df)-COLnum1)){
-  #   i<-i+COLnum1
-  #   j<-nrow(df)-sum(df[,i]==0)
-  #   k<-which('0' != df[,i])
-  #   sum.dbi<-sum(as.numeric(table_user[k]))
-  #
-  #   vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F))) #2^table_package
-  #
-  #   nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
-  #   vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
-  # }
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
@@ -66,7 +55,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     k<-which('0' != df[,i])
     k<-table_user[k]
     sum.DBI<-sum(as.numeric(table_user[k]))
-    print(sum.DBI)
     potDBI<-(sum.DBI/sum(decr[1:length(k)]))
     trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
     Pmax<-sum(decr[1:length(k)])
@@ -103,7 +91,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   rownames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI")
 
   if (type=="def"){
-    cat("DBI potential a true DBI potential","\n")
     table3<-t(table2)
   }
 
@@ -117,7 +104,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     table3<-table2[1,]
     table3<-as.data.frame(table3)
     colnames(table3)<-"pDBI"
-
   }
   table3
 }

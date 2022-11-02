@@ -90,6 +90,5 @@ StandardDBI<-function(df, UD=F, type, data="DBI", plot=F){
 
   table2<-as.data.frame(table2)
   colnames(table2)<-rname
-  print(table2)
   table2
 }
