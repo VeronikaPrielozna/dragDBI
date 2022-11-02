@@ -44,7 +44,7 @@ LoadDBI, LoadData, UniteData, CalculateDBI
 StandardDBI, PermDBI, PotDBI
 
 ### Reporting problems
-The package has been extensively tested using different test datasets, but if you come across an error or bug, then please [email me] (verca.prielozna@gmail.com).
+The package has been extensively tested using different test datasets, but if you come across an error or bug, then please email me verca.prielozna@gmail.com.
 
 ### Paper and citation
 
