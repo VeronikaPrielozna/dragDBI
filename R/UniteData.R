@@ -119,12 +119,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
     }
   }
   cat("\n")
-  print(table_user)
-  print(ncol(table_user)-COLnum1)
-  print(ncol(table_user))
-  print(2:((ncol(table_user))-COLnum2))
   table_user<-table_user[, c(1,((ncol(table_user)-COLnum1)):ncol(table_user), 2:((ncol(table_user))-COLnum2+COLnum))]
-  print(table_user[, c(1,(ncol(table_user)-COLnum1):ncol(table_user), 2:(ncol(table_user)-COLnum2))])
   print(table_user)
   table_user
 }
