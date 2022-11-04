@@ -74,52 +74,54 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     table1<-cbind(table1,table_cal)
   }
   table1<-table1[,3:ncol(table1)]
-
+  table1<-as.data.frame(table1)
   colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
 
   if (plot == T){
     par(mfrow=c(1,1), mar=c(4,4,2,1))
-    print(table1)
-    minP<-table1[5]
-    maxP<-table1[4]
-    posgr = barplot(as.matrix(table1[1]), plot = F)
-    plot(NULL,ylim = c(min(minP),max(maxP)),xlim = c(1,ncol(table1))
+    minP<-table1[5,]
+    maxP<-table1[4,]
+    posgr = barplot(as.matrix(table1[1,]), plot = F)
+    plot(NULL,ylim = c(min(minP),max(maxP)),xlim = c(1,length(table1))
          , xlab = "", xaxt = "n", ylab = "Sum of DBI")
-
     points(c(1:ncol(table1)), table1[1,], pch = 16)
-
     axis(1,at=1:ncol(table1),lab=colnames(table1),las=2)
 
-    for (i in 1:ncol(table1)){
+    if(length(minP)==1){
+      arrows(1,minP[,1],1,maxP[,1],angle=90,code=3,length=0.08)
+    }
+
+    else{
+      for (i in 1:ncol(table1)){
         arrows(i,minP[i],i,maxP[i],angle=90,code=3,length=0.08)
       }
-
+    }
     table1<-round(table1,4)
   }
 
-  table2<-matrix(ncol = length(table1))
-
-  table2<-rbind(table1[2], table1[3], table1[1], table1[4])
-  colnames(table2)<-colnames(table1)
-  rownames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI")
+  table2<-matrix(ncol=ncol(table1))
+  table2<-cbind(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,])
+  colnames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
 
   if (type=="def"){
-    table3<-t(table2)
+    # table3<-t(table2)
+    table3<-table2
   }
 
   if(type=="tpDBI"){
     table3<-table2[2,]
-    table3<-as.data.frame(table3)
+    # table3<-as.data.frame(table3)
     colnames(table3)<-"tpDBI"
   }
 
   if(type=="pDBI"){
     table3<-table2[1,]
-    table3<-as.data.frame(table3)
+    # table3<-as.data.frame(table3)
     colnames(table3)<-"pDBI"
   }
-
   COLnam<-as.vector(colnames(df))
-  rownames(table3)<-COLnam[COLnum2:length(COLnam)]
+  rownames(table3)<-COLnam[3:ncol(df)]
+  print(table3)
   table3
 }
+
