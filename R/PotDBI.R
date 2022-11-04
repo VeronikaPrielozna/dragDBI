@@ -33,13 +33,11 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     if (NAval==F){
       table_package<-DBI_UD$DBI
     }
-
     COLnum1<-2
     COLnum2<-3
   }
 
   if(DBI_val!="UD"){
-
     COLnum1<-5
     COLnum2<-6
   }
@@ -120,7 +118,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     colnames(table3)<-"pDBI"
   }
   COLnam<-as.vector(colnames(df))
-  rownames(table3)<-COLnam[3:ncol(df)]
+  rownames(table3)<-COLnam[COLnum2:ncol(df)]
   print(table3)
   table3
 }
