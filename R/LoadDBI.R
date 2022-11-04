@@ -10,12 +10,12 @@
 #'
 #' DBI_MD<-LoadDBI()
 
-LoadDBI<-function(attrib=T){
+LoadDBI<-function(){
   print("Copy data into clipboard")
   invisible(readline(prompt="Press [enter] to continue"))
   tryCatch(silent=T,
            expr = {
-             DBI_MD<-read.table("clipboard", h=T, as.is=T, sep = "\t")
+             DBI_UD<-read.table("clipboard", h=T, as.is=T, sep = "\t")
              message("Dataset successfully uploaded.")
            },
            error = function(e){
@@ -27,15 +27,11 @@ LoadDBI<-function(attrib=T){
              print(w)
            },
            finally = {
-             if (attrib==T){
-               attr(DBI_MD, "Number of species")<-nrow(DBI_MD)
-               print("Attributes of table")
-               print(attributes(DBI_MD))
-             }
-             cat(paste("Your data:"))
-             cat("\n")
-
+             colnames(DBI_UD)<-c("Species", "DBI")
+             cat(paste("Number of species:",nrow(DBI_UD),"\n"))
+             cat(paste("Your data: ","\n"))
            }
   )
-  DBI_MD
+  print(DBI_UD)
+  DBI_UD
 }

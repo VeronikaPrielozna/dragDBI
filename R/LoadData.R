@@ -16,7 +16,7 @@
 #'
 #' x_SA<-LoadData()
 
-LoadData<-function(attrib=T, na2null=T){
+LoadData<-function(){
 
   cat(paste("Copy data into clipboard"))
   cat("\n")
@@ -35,17 +35,11 @@ LoadData<-function(attrib=T, na2null=T){
              print(w)
            },
            finally = {
-             message("You can continue.")
-           }
+             x[is.na(x)]<-0
+             cat(paste("Number of species",nrow(x),"\n"))
+             cat(paste("Number of samples", ncol(x)-1,"\n"))
+          }
   )
-
-  if(na2null==T) x[is.na(x)]<-0
-  attr(x, "Number of species")<-nrow(x)
-  attr(x, "Number of samples")<-ncol(x)-1
-  if (attrib==T){
-    print("Attributes of table")
-    print(attributes(x))
-  }
   print(x)
   x
 }
