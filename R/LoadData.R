@@ -36,8 +36,8 @@ LoadData<-function(){
            },
            finally = {
              x[is.na(x)]<-0
-             cat(paste("Number of species",nrow(x),"\n"))
-             cat(paste("Number of samples", ncol(x)-1,"\n"))
+             cat(paste("Number of species: ",nrow(x),"\n"))
+             cat(paste("Number of samples: ", ncol(x)-1,"\n"))
           }
   )
   print(x)

@@ -28,12 +28,16 @@ UniteData<-function(df, DBI_val, DBI_UD){
     table_package<-DBI_UD
     table_spec<-table_package[,1]
     COLname<-c("Species", "DBI")
+    if(ncol(table_package)==2){
+      COLnum<-1
+    }
     COLnum1<-0
     COLnum2<-2
   }
   if(DBI_val!="UD"){
     table_spec<-table_package$Species
     COLname<-c("Distribution", "Threat", "Sensitivity", "TOTAL")
+    COLnum<-0
     COLnum1<-3
     COLnum2<-4
   }
@@ -115,6 +119,9 @@ UniteData<-function(df, DBI_val, DBI_UD){
     }
   }
   cat("\n")
+  print(table_user)
+  print(table_user[1])
+  print(table_user[2])
   table_user<-table_user[, c(1,(ncol(table_user)-COLnum1):ncol(table_user), 2:(ncol(table_user)-COLnum2))]
   print(table_user)
   table_user

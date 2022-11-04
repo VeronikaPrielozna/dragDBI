@@ -33,13 +33,23 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     if (NAval==F){
       table_package<-DBI_UD$DBI
     }
+
     COLnum1<-2
     COLnum2<-3
   }
 
   if(DBI_val!="UD"){
+
     COLnum1<-5
     COLnum2<-6
+  }
+
+  if(ncol(df)==3){
+    ROWnum<-0
+  }
+
+  else{
+    RoWnum<-1
   }
 
   table1<-matrix(nrow = 5, ncol = 2)
@@ -69,9 +79,10 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
 
   if (plot == T){
     par(mfrow=c(1,1), mar=c(4,4,2,1))
-    minP<-table1[5,]
-    maxP<-table1[4,]
-    posgr = barplot(as.matrix(table1[1,]), plot = F)
+    print(table1)
+    minP<-table1[5]
+    maxP<-table1[4]
+    posgr = barplot(as.matrix(table1[1]), plot = F)
     plot(NULL,ylim = c(min(minP),max(maxP)),xlim = c(1,ncol(table1))
          , xlab = "", xaxt = "n", ylab = "Sum of DBI")
 
@@ -85,8 +96,10 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
 
     table1<-round(table1,4)
   }
-  table2<-matrix(nrow = 1, ncol = ncol(table1))
-  table2<-rbind(table1[2,], table1[3,], table1[1,], table1[4,])
+
+  table2<-matrix(ncol = length(table1))
+
+  table2<-rbind(table1[2], table1[3], table1[1], table1[4])
   colnames(table2)<-colnames(table1)
   rownames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI")
 
@@ -105,5 +118,8 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     table3<-as.data.frame(table3)
     colnames(table3)<-"pDBI"
   }
+
+  COLnam<-as.vector(colnames(df))
+  rownames(table3)<-COLnam[COLnum2:length(COLnam)]
   table3
 }
