@@ -65,8 +65,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   }
   table1<-table1[,3:ncol(table1)]
   table1<-as.data.frame(table1)
-  print("table1")
-  print(table1)
   colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
 
   if (plot == T){
@@ -83,24 +81,25 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
       arrows(1,minP[,1],1,maxP[,1],angle=90,code=3,length=0.08)
     }
 
-    else{
+    if(length((minP)>1)){
       for (i in 1:ncol(table1)){
-        arrows(i,minP[i],i,maxP[i],angle=90,code=3,length=0.08)
+        arrows(i,minP[,i],i,maxP[,i],angle=90,code=3,length=0.08)
       }
-    }
+  }
     table1<-round(table1,4)
   }
 
-  table2<-matrix(nrow = ncol(table1), ncol=nrow(table1))
+  # table2<-as.data.frame(table2)
+  # print(table2)
+  # table2<-rbind(table2, table1)
+  # table2<-cbind(table2,c(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,]))
+  # table2<-as.data.frame(c(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,]))
 
-  table2<-as.data.frame(table2)
-  print("table1[2,]")
-  print(table1[2,])
-  table2<-cbind(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,])
-  print(table2)
+  table2<-t(table1)
+  table2<-table2[,c(2,3,1,4,5)]
+  table2<-rbind(table2, 777)
   colnames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
-  print("table2")
-  print(table2)
+
 
   if (type=="def"){
     # table3<-t(table2)
@@ -119,10 +118,10 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
     colnames(table3)<-"pDBI"
   }
 
-  print("table3")
-  print(table3)
+
   COLnam<-as.vector(colnames(df))
-  rownames(table3)<-COLnam[COLnum2:ncol(df)]
+  rownames(table3)<-c(COLnam[COLnum2:ncol(df)], "nic")
+  table3<-table3[1:nrow(table3)-1,]
   print(table3)
   table3
 }
