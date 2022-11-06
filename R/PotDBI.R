@@ -91,6 +91,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
 
 
   if (type=="def"){
+
     # table3<-t(table2)
     table3<-table2
   }
@@ -109,7 +110,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
 
 
   COLnam<-as.vector(colnames(df))
-  rownames(table3)<-c(COLnam[COLnum2:ncol(df)], "nic")
+  rownames(table3)<-c(COLnam[COLnum2:ncol(df)], "nth")
   table3<-table3[1:nrow(table3)-1,]
   print(table3)
   table3

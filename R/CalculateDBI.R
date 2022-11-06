@@ -85,15 +85,18 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
       table2<-cbind(table2,table_cal1)
 
 
-    }
-  table1<-as.data.frame(table1)
-  table1<-rbind(table1, table2[1,], table2[2,])
-  table1<-table1[,3:ncol(table1)]
+  }
+  table1<-rbind(table1,table2)
+  table1<-t(table1)
+  table1<-rbind(table1,777)
 
-  colnames(table1)<-colnames(df[,COLnum2:ncol(df)])
-  rownames(table1)<-c("SumDBI", "MeanDBI", "PermDBIpot", "PotDBI", "TrueDBIpot")
+  table1<-table1[3:nrow(table1),]
+  COLnam<-as.vector(colnames(df))
+  rownames(table1)<-c(COLnam[COLnum2:ncol(df)], "nth")
+  colnames(table1)<-c("SumDBI", "MeanDBI", "PermDBIpot", "PotDBI", "TrueDBIpot")
+  table1<-table1[1:nrow(table1)-1,]
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
-  print(t(table1))
-  t(table1)
+  print(table1)
+  table1
 }
