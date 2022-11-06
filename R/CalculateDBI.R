@@ -54,7 +54,6 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   table_cal1<-matrix(nrow = 2)
   decr<-sort(table_package,decreasing=T)
   incr<-sort(table_package,decreasing=F)
-  vec.nase.dbi<-vector()
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
@@ -66,8 +65,7 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
 
     vec1<-replicate(sim, sum(sample(table_package, prob = 1/(2^table_package), j, F)))
 
-    nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
-    vec.nase.dbi<-c(vec.nase.dbi,nase.dbi)
+    nase.dbi<-length(vec1[vec1<sum.dbi])/(length(vec1))
     table_cal<-rbind(sum.dbi, mean.dbi, nase.dbi)
     table1<-cbind(table1,table_cal)
   }
@@ -76,15 +74,17 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
       i<-i+COLnum1
       j<-nrow(df)-sum(df[,i]==0)
       k<-which('0' != df[,i])
-      k<-table_user[k]
       sum.DBI<-sum(as.numeric(table_user[k]))
-      potDBI<-(sum(vec.nase.dbi)/sum(decr[1:length(k)]))
-      trupotDBI<-((sum(vec.nase.dbi)-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
+      potDBI<-(sum.DBI/sum(decr[1:length(k)]))
+      trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
+
       Pmax<-sum(decr[1:length(k)])
       Pmin<-sum(incr[1:length(k)])
 
       table_cal1<-rbind(potDBI, trupotDBI)
       table2<-cbind(table2,table_cal1)
+
+
     }
   table1<-as.data.frame(table1)
   table1<-rbind(table1, table2[1,], table2[2,])
@@ -94,5 +94,6 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   rownames(table1)<-c("SumDBI", "MeanDBI", "PermDBIpot", "PotDBI", "TrueDBIpot")
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
+  print(t(table1))
   t(table1)
 }

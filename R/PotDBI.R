@@ -46,20 +46,16 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   table_cal<-matrix(nrow = 4)
   decr<-sort(table_package,decreasing=T)
   incr<-sort(table_package,decreasing=F)
-  vec.nase.dbi<-vector()
-
 
   for (i in 1:(ncol(df)-COLnum1)){
     i<-i+COLnum1
     j<-nrow(df)-sum(df[,i]==0)
     k<-which('0' != df[,i])
-    k<-table_user[k]
     sum.DBI<-sum(as.numeric(table_user[k]))
     potDBI<-(sum.DBI/sum(decr[1:length(k)]))
     trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
     Pmax<-sum(decr[1:length(k)])
     Pmin<-sum(incr[1:length(k)])
-
     table_cal<-rbind(sum.DBI, potDBI, trupotDBI, Pmax, Pmin)
     table1<-cbind(table1,table_cal)
   }
@@ -88,13 +84,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   }
     table1<-round(table1,4)
   }
-
-  # table2<-as.data.frame(table2)
-  # print(table2)
-  # table2<-rbind(table2, table1)
-  # table2<-cbind(table2,c(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,]))
-  # table2<-as.data.frame(c(table1[2,], table1[3,], table1[1,], table1[4,], table1[5,]))
-
   table2<-t(table1)
   table2<-table2[,c(2,3,1,4,5)]
   table2<-rbind(table2, 777)
