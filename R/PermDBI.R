@@ -68,15 +68,12 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
       abline(v=sum.dbi, lwd=3)
     }
   }
-  table1<-table1[1,2:ncol(table1)]
-  table1<-as.vector(table1)
-  table2<-matrix(nrow = 1, ncol = length(table1))
-  table2<-rbind(table2,table1)
-  colnames(table2)<-colnames(df[COLnum2:ncol(df)])
-  #table2<-table2[-1,]
-  cat("Permutational DBI and potential","\n")
-  table2<-t(table2)
-  table2<-as.data.frame(table2[,-1])
-  colnames(table2)<-" "
+  print(table1)
+  table1<-table1[,2:ncol(table1), drop=F]
+  table1<-as.data.frame(table1)
+  table2<-t(table1)
+  rownames(table2)<-colnames(df[COLnum2:ncol(df)])
+  colnames(table2)<-"PermDBI"
+  print(table2)
   table2
 }

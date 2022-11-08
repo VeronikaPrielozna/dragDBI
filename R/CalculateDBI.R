@@ -71,30 +71,28 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   }
 
   for (i in 1:(ncol(df)-COLnum1)){
-      i<-i+COLnum1
-      j<-nrow(df)-sum(df[,i]==0)
-      k<-which('0' != df[,i])
-      sum.DBI<-sum(as.numeric(table_user[k]))
-      potDBI<-(sum.DBI/sum(decr[1:length(k)]))
-      trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
+    i<-i+COLnum1
+    j<-nrow(df)-sum(df[,i]==0)
+    k<-which('0' != df[,i])
+    sum.DBI<-sum(as.numeric(table_user[k]))
+    potDBI<-(sum.DBI/sum(decr[1:length(k)]))
+    trupotDBI<-((sum.DBI-sum(incr[1:length(k)]))/(sum(decr[1:length(k)])-sum(incr[1:length(k)])))
 
-      Pmax<-sum(decr[1:length(k)])
-      Pmin<-sum(incr[1:length(k)])
+    Pmax<-sum(decr[1:length(k)])
+    Pmin<-sum(incr[1:length(k)])
 
-      table_cal1<-rbind(potDBI, trupotDBI)
-      table2<-cbind(table2,table_cal1)
-
+    table_cal1<-rbind(potDBI, trupotDBI)
+    table2<-cbind(table2,table_cal1)
 
   }
   table1<-rbind(table1,table2)
   table1<-t(table1)
-  table1<-rbind(table1,777)
 
-  table1<-table1[3:nrow(table1),]
+  table1<-table1[3:nrow(table1), ,drop=F]
   COLnam<-as.vector(colnames(df))
-  rownames(table1)<-c(COLnam[COLnum2:ncol(df)], "nth")
+  rownames(table1)<-c(COLnam[COLnum2:ncol(df)])
   colnames(table1)<-c("SumDBI", "MeanDBI", "PermDBIpot", "PotDBI", "TrueDBIpot")
-  table1<-table1[1:nrow(table1)-1,]
+
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
   print(table1)

@@ -81,38 +81,40 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
       for (i in 1:ncol(table1)){
         arrows(i,minP[,i],i,maxP[,i],angle=90,code=3,length=0.08)
       }
-  }
+    }
     table1<-round(table1,4)
   }
   table2<-t(table1)
-  table2<-table2[,c(2,3,1,4,5)]
-  table2<-rbind(table2, 777)
-  colnames(table2)<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
-
+  table2<-table2[,c(2,3,1,4,5), drop=F]
 
   if (type=="def"){
-
-    # table3<-t(table2)
     table3<-table2
+    CN<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
+    print(table3)
   }
 
   if(type=="tpDBI"){
-    table3<-table2[2,]
-    # table3<-as.data.frame(table3)
-    colnames(table3)<-"tpDBI"
+    table3<-table2[,2, drop=F]
+    CN<-"tpDBI"
   }
 
   if(type=="pDBI"){
-    table3<-table2[1,]
-    # table3<-as.data.frame(table3)
-    colnames(table3)<-"pDBI"
+    table3<-table2[,1,drop=F]
+    CN<-"pDBI"
   }
 
-
   COLnam<-as.vector(colnames(df))
-  rownames(table3)<-c(COLnam[COLnum2:ncol(df)], "nth")
-  table3<-table3[1:nrow(table3)-1,]
-  print(table3)
-  table3
+  rownames(table3)<-c(COLnam[COLnum2:ncol(df)])
+  colnames(table3)<-CN
+
+  print(table3[drop=F])
+  table3[drop=T]
 }
+
+
+
+
+
+
+
 
