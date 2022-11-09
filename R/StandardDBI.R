@@ -81,14 +81,14 @@ StandardDBI<-function(df, UD=F, type, data="DBI", plot=F){
   table1<-as.data.frame(table1)
   table2<-t(table1)
   rownames(table2)<-colnames(df[fcol:ncol(df)])
+  table2<-as.data.frame(table2)
+  colnames(table2)<-rname
 
   if(plot==T){
     par(mfrow=c(1,1), mar=c(4,4,1,1))
-    barplot(table2, ylim = c(0,max(table2) + yval), las = 2, ylab = rname, font.main = 1, names.arg = colnames(table2))
+    barplot(as.vector(table2[,1]), ylim = c(0,(max(table2[,1]) + yval)),
+    las = 2, ylab = rname, font.main = 1, names.arg = rownames(table2))
   }
-
-  table2<-as.data.frame(table2)
-  colnames(table2)<-rname
   print(table2)
   table2
 }
