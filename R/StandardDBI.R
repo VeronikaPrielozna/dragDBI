@@ -17,7 +17,7 @@
 #'
 #' StandardDBI(DBI_Data, type = "mean")
 
-StandardDBI<-function(df, UD=F, type, data="DBI", plot=F){
+StandardDBI<-function(df, UD=F, type="mean", data="DBI", plot=F){
   table1<-matrix(nrow = 1, ncol = 1)
   table_cal<-matrix(nrow = 1)
   if(UD==F){

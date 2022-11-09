@@ -78,6 +78,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
       print(tabulka)
       cat("\n")
       answ=readline(prompt="Choosen: ")
+      table_user[j,1]<-tabulka[answ,]
 
       if(tabulka[answ,]==c("None!")) {
         miss<-c(miss,table_user[j,1])
@@ -86,8 +87,6 @@ UniteData<-function(df, DBI_val, DBI_UD){
     }
 
     table_user[j,COLname]<-table_package[match(table_user[j,1], table_package[,1]), COLname]
-
-    #table_user<-table_user[, c(1,(ncol(table_user)-COLnum):ncol(table_user), 2:(ncol(table_user)-COLnum2))]
   }
 
   if (DBI_val=="UD"){
@@ -111,7 +110,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
   table_user<-as.data.frame(sapply(table_user[2:ncol(table_user)], as.numeric))
   table_user<-data.frame(Species, table_user)
 
-  if ("NA" %in% table_user$Species){
+  if ("NA" %in% table_user$TOTAL){
     table_user<-table_user[-which(table_user[,1]=="NA"),]
     cat(paste("Removed species:","\n"))
     for (o in 1:length(miss)){
@@ -120,6 +119,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
   }
   cat("\n")
   table_user<-table_user[, c(1,((ncol(table_user)-COLnum1)):ncol(table_user), 2:((ncol(table_user))-COLnum2+COLnum))]
+
   print(table_user)
   table_user
 }
