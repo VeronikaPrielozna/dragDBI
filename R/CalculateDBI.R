@@ -95,6 +95,8 @@ CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
 
   table1<-round(table1,3)
   cat("Calculated set of DBI values","\n")
-  print(as.data.frame(table1))
+  table1<-as.data.frame(table1)
+  rownames(table1)<-c(COLnam[COLnum2:ncol(df)])
+  print(table1)
   as.data.frame(table1)
 }
