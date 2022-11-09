@@ -15,7 +15,7 @@
 #'
 #' Perm(DBI_Data, DBI_val = "CE", sim = 10000)
 
-PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
+PermDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=F){
   hist_names<-as.vector(names(df))
 
   table1<-matrix(nrow = 1, ncol = 1)
@@ -55,9 +55,7 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
     j<-nrow(df)-sum(df[,i]==0)
     k<-which('0' != df[,i])
     sum.dbi<-sum(as.numeric(table_user[k]))
-
     vec1<-replicate(sim, sum(sample(table_package,j, prob = 1/(2^table_package), F)))
-
     nase.dbi<-round(length(vec1[vec1<sum.dbi])/(length(vec1)),3)
     table_cal<-rbind(nase.dbi)
     table1<-cbind(table1,table_cal)
@@ -68,7 +66,7 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F){
       abline(v=sum.dbi, lwd=3)
     }
   }
-  print(table1)
+
   table1<-table1[,2:ncol(table1), drop=F]
   table1<-as.data.frame(table1)
   table2<-t(table1)
