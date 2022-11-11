@@ -127,9 +127,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
     }
     message("Therefor, they will be removed.","\n")
   }
-  cat("\n")
   table_user<-table_user[, c(1,((ncol(table_user)-COLnum1)):ncol(table_user), 2:((ncol(table_user))-COLnum2+COLnum))]
-
   print(table_user)
   table_user
 }
