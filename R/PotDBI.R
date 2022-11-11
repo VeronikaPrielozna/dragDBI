@@ -107,8 +107,8 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   rownames(table3)<-c(COLnam[COLnum2:ncol(df)])
   colnames(table3)<-CN
 
-  print(table3[drop=F])
-  table3[drop=T]
+  print(table3)
+  table3
 }
 
 
