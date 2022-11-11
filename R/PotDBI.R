@@ -105,8 +105,7 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   COLnam<-as.vector(colnames(df))
   rownames(table3)<-c(COLnam[COLnum2:ncol(df)])
   colnames(table3)<-CN
-
-  print(table3)
+  table3<-round(table3, 5)
   table3
 }
 

@@ -72,6 +72,5 @@ PermDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=F){
   table2<-t(table1)
   rownames(table2)<-colnames(df[COLnum2:ncol(df)])
   colnames(table2)<-"PermDBI"
-  print(table2)
   table2
 }
