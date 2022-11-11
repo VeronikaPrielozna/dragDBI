@@ -79,6 +79,15 @@ UniteData<-function(df, DBI_val, DBI_UD){
       cat("\n")
       answ=readline(prompt="Choosen: ")
 
+      if (answ %in% 1:nrow(tabulka)){
+        next
+      }
+
+      else{
+        stop('Your answer is not between 1 and ', nrow(tabulka), '.')
+      }
+
+
       if(tabulka[answ,]==c("None!")) {
         miss<-c(miss,table_user[j,1])
         table_user[j,1]<-"NA"
