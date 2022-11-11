@@ -79,11 +79,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
       cat("\n")
       answ=readline(prompt="Choosen: ")
 
-      if (answ %in% 1:nrow(tabulka)){
-        next
-      }
-
-      else{
+      if (!(answ %in% 1:nrow(tabulka))){
         stop('Your answer is not between 1 and ', nrow(tabulka), '.')
       }
 
