@@ -90,7 +90,6 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   if (type=="def"){
     table3<-table2
     CN<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
-    print(table3)
   }
 
   if(type=="tpDBI"){
