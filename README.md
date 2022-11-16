@@ -134,3 +134,19 @@ PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
 The package has been extensively tested using different test datasets, but if you come across any error or bug, please email me (verca.prielozna@gmail.com).
 
 
+### Citation
+To cite package ‘dragDBI’ in publications use:
+
+  Prieložná V., Pyszko P., Šigutová H., Bílková E. and Dolný A. (2022). dragDBI:
+  Calculation of Dragonfly Biotic Index for Odonata communities. R package version
+  1.0. https://github.com/VeronikaPrielozna/dragDBI
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {dragDBI: Calculation of Dragonfly Biotic Index for Odonata communities},
+    author = {Prieložná V. and Pyszko P. and Šigutová H. and Bílková E. and Dolný A.},
+    year = {2022},
+    note = {R package version 1.0},
+    url = {https://github.com/VeronikaPrielozna/dragDBI},
+  }
