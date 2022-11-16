@@ -136,6 +136,6 @@ PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
 ```
 
 ### Reporting problems
-The package has been extensively tested using different test datasets, but if you come across any error or bug, please [email me] (verca.prielozna@gmail.com).
+The package has been extensively tested using different test datasets, but if you come across any error or bug, please email me (verca.prielozna@gmail.com).
 
 
