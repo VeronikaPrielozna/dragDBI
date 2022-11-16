@@ -9,7 +9,6 @@
 #'
 #' @returns A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
 #' @examples
-#'
 #' # Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
 #'
 #' StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
