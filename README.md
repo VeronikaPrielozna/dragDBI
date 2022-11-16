@@ -120,8 +120,7 @@ StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
 
 PermDBI(StormwaterDBI, DBI_val = "CE")
 
-#  Calculate the permutational DBI potential for the user data
-with own DBI checklist and plotted results. 
+#  Calculate the permutational DBI potential for the user data with own DBI checklist and plotted results. 
 
 PermDBI(UserDataDBI, DBI_val = "UD", DBI_UD, plot = T)
 ```
@@ -132,8 +131,7 @@ PermDBI(UserDataDBI, DBI_val = "UD", DBI_UD, plot = T)
 
 PotDBI(StormwatersDBI, DBI_val = "CE", type = "rpDBI")
 
-#  Calculate the real DBI potential for the user data
-with own DBI checklist and plotted results. 
+#  Calculate the real DBI potential for the user data with own DBI checklist and plotted results. 
 
 PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
 
