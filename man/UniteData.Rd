@@ -17,7 +17,8 @@ UniteData(df, DBI_val, DBI_UD)
 The function allows for quality-checking of the correctness of species naming, and automated assignment of DBI values to the user dataset based on the comparison with checklists with DBI values for Central European or South African dragonflies. It checks the list of taxa present in the sample dataset against the checklist of taxa within the package to identify any non-scoring taxa in the samples (or spelling mistakes).
 }
 \examples{
-Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+
+# Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
 
 StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
 

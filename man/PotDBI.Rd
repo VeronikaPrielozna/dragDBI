@@ -2,13 +2,40 @@
 % Please edit documentation in R/PotDBI.R
 \name{PotDBI}
 \alias{PotDBI}
-\title{DBI potential for dragonfly communities}
+\title{DBI potential for odonate communities}
 \usage{
-PotDBI(df, DBI_val, DBI_UD, type = "def", NAval = F, plot = F)
+PotDBI (df, DBI_val, DBI_UD, type="def", NAval=F, plot=F)
 }
 \arguments{
-\item{plot}{}
+\item{df}{A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.}
+
+\item{DBI_val}{Indicates checklist which should be used for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. “UD” indicates user-defined/uploaded checklist.}
+
+\item{DBI_UD}{In case that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.}
+
+\item{type}{Indicates if ‘rpDBI’, i.e., real DBI potential or ‘pDBI’, i.e., DBI potential should be calculated. By default, DBI potential, real DBI potential, sum of DBI and probable maximum value of sum of DBI are calculated.}
+
+\item{NAval}{Logical, true in case of NA values in user-defined checklist.}
+
+\item{plot}{Should a plot displaying a range between probable maximum and minimum values of sum of DBI and position of sum of DBI in the range be plotted? By default, the plot is not rendered.}
 }
 \description{
-DBI potential for dragonfly communities
+Calculates DBI potential and real DBI potential for odonate community samples.
+}
+\examples{
+# For this function, you must have a data frame created by "UniteData".
+
+# Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+
+StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
+
+# "StormwatersDBI" is then the input of the "CalculateDBI" function.
+
+# Calculate the real DBI potential for the Highway stormwater and control ponds dataset.
+
+PotDBI(StormwatersDBI, DBI_val = "CE", type = "rpDBI")
+
+# Calculate the real DBI potential for the user data with own DBI checklist and plotted results.
+
+PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
 }

@@ -2,22 +2,38 @@
 % Please edit documentation in R/StandardDBI.R
 \name{StandardDBI}
 \alias{StandardDBI}
-\title{Standard DBI values for dragonfly communities}
+\title{Standard DBI scores for odonate communities}
 \usage{
-StandardDBI(df, UD = F, type = "mean", data = "DBI", plot = F)
+StandardDBI(df, UD=F, type ="mean", data="DBI", plot=F)
 }
 \arguments{
-\item{data}{}
+\item{df}{A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.}
+
+\item{UD}{Logical, true in case of user uploaded checklist is used. By default, false.}
+
+\item{type}{Indicates if sum of DBI (‘sum’) or mean of DBI (‘mean’) should be calculated. By default, the mean of DBI (‘mean’) is used.}
+
+\item{data}{In case that user checklist is not used in ‘UniteData’ function, the ‘StandardDBI’ function is able to calculate with DBI values (‘DBI’), values of sensitivity (‘SENS’), threat (‘THR’) and distribution (‘DIST’).}
+
+\item{plot}{Should a barplot for results of calculations be plotted? By default, the plot is not rendered.}
 }
 \description{
-Standard DBI values for dragonfly communities
+Calculates sum or mean of DBI for odonate community samples.
 }
 \examples{
-# Calculate the sum DBI index for the Highway stormwater and control ponds dataset.
+# For this function, you must have a data frame created by "UniteData".
 
-StandardDBI(DBI_Data, type = "sum")
+# Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
 
-# Calculate the mean DBI index for the Highway stormwater and control ponds dataset.
+StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
 
-StandardDBI(DBI_Data, type = "mean")
+# "StormwatersDBI" is then the input of the "StandardDBI" function.
+
+# Calculate the sum DBI score type for the Highway stormwater and control ponds dataset.
+
+StandardDBI(StormwatersDBI, type = "sum")
+
+# Calculate the sum DBI score type for the user data with own DBI checklist and plotted results.
+
+StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
 }

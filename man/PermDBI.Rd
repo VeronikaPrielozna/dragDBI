@@ -2,18 +2,40 @@
 % Please edit documentation in R/PermDBI.R
 \name{PermDBI}
 \alias{PermDBI}
-\title{Permutational DBI and potential for dragonfly communities}
+\title{Permutational DBI potential for odonate communities}
 \usage{
-PermDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000, plot = F)
+PermDBI(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F)
 }
 \arguments{
-\item{plot}{}
+\item{df}{A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.}
+
+\item{DBI_val}{Indicates checklist that is used for assembling random communities for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. ‘UD’ indicates user-defined/uploaded checklist.}
+
+\item{DBI_UD}{In case that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.}
+
+\item{NAval}{Logical, true in case of NA values in user-defined checklist.}
+
+\item{sim}{The number of simulations identifies how many permutations should be made to randomly assemble communities with the same species richness as the community in question.}
+
+\item{plot}{Should a histogram for randomly assembled communities be plotted for each compared community, completed with a vertical abline representing the given community? By default, the plot is not rendered.}
 }
 \description{
-Permutational DBI and potential for dragonfly communities
+Calculates permutational DBI potential for odonate community samples.
 }
 \examples{
-# Calculate the permutational DBI potential for the Highway stormwater and control ponds dataset, comparing the given community to 10 000 randomly assembled communities.
+# For this function, you must have a data frame created by "UniteData".
 
-Perm(DBI_Data, DBI_val = "CE", sim = 10000)
+# Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+
+StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
+
+# "StormwatersDBI" is then the input of the “CalculateDBI” function.
+
+# Calculate the permutational DBI potential for the Highway stormwater and control ponds dataset, comparing the given community to 10,000 randomly assembled communities.
+
+PermDBI(StormwaterDBI, DBI_val = "CE")
+
+# Calculate the permutational DBI potential for the user data with own DBI checklist and plotted results.
+
+PermDBI(UserDataDBI, DBI_val = "UD", DBI_UD, plot = T)
 }
