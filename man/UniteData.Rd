@@ -13,6 +13,9 @@ UniteData(df, DBI_val, DBI_UD)
 
 \item{DBI_UD}{In case, that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.}
 }
+\value{
+A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
+}
 \description{
 The function allows for quality-checking of the correctness of species naming, and automated assignment of DBI values to the user dataset based on the comparison with checklists with DBI values for Central European or South African dragonflies. It checks the list of taxa present in the sample dataset against the checklist of taxa within the package to identify any non-scoring taxa in the samples (or spelling mistakes).
 }

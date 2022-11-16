@@ -17,6 +17,9 @@ CalculateDBI(df, DBI_val, DBI_UD, NAval=F, sim=10000)
 
 \item{sim}{The number of simulations identifies how many permutations should be made to randomly assemble communities with the same species richness as the community in question. The probability weight for each DBI is set as 2^-DBI, i.e., a species with a DBI higher by one unit has half the probability of being selected into a random community than a species with a lower DBI value.}
 }
+\value{
+A data frame consisting of the columns of score types  (sum of DBI, mean of DBI, DBI potential, real DBI potential, and permutational DBI potential) with samples in rows.
+}
 \description{
 Calculates sum of DBI, mean of DBI, DBI potential, real DBI potential, and permutational DBI potential for odonate community samples.
 }

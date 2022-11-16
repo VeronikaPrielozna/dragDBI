@@ -2,7 +2,7 @@
 #'
 #' @description The function allows for simple loading of user data and converting NA values into null.
 #' @usage LoadData()
-#' @value A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
+#' @returns  A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
 #' @examples
 #' Uploading data containing species of Central Europe. Saved as "Europe".
 #'

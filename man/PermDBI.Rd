@@ -19,6 +19,9 @@ PermDBI(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F)
 
 \item{plot}{Should a histogram for randomly assembled communities be plotted for each compared community, completed with a vertical abline representing the given community? By default, the plot is not rendered.}
 }
+\value{
+A data frame consisting of a column of index values with samples in rows.
+}
 \description{
 Calculates permutational DBI potential for odonate community samples.
 }

@@ -8,7 +8,7 @@
 #' @param data In case that user checklist is not used in ‘UniteData’ function, the ‘StandardDBI’ function is able to calculate with DBI values (‘DBI’), values of sensitivity (‘SENS’), threat (‘THR’) and distribution (‘DIST’).
 #' @param plot Should a barplot for results of calculations be plotted? By default, the plot is not rendered.
 #'
-#' @value A data frame consisting of a column of index values with samples in rows.
+#' @returns A data frame consisting of a column of index values with samples in rows.
 #' @examples
 #' # For this function, you must have a data frame created by "UniteData".
 #'

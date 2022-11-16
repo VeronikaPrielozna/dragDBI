@@ -5,7 +5,7 @@
 #' @param df A data frame containing uploaded user dataset (list of taxa in first column, followed by columns of abundances with sample names in a header).
 #' @param DBI_val Indicates checklist which should be used for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. ‘UD’ indicates user defined/uploaded checklist.
 #' @param DBI_UD In case, that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.
-#' @value A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
+#' @returns A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
 #' @examples
 #'
 #' # Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".

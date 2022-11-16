@@ -17,6 +17,9 @@ StandardDBI(df, UD=F, type ="mean", data="DBI", plot=F)
 
 \item{plot}{Should a barplot for results of calculations be plotted? By default, the plot is not rendered.}
 }
+\value{
+A data frame consisting of a column of index values with samples in rows.
+}
 \description{
 Calculates sum or mean of DBI for odonate community samples.
 }

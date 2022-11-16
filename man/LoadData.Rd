@@ -6,6 +6,9 @@
 \usage{
 LoadData()
 }
+\value{
+A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
+}
 \description{
 The function allows for simple loading of user data and converting NA values into null.
 }

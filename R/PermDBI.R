@@ -9,7 +9,7 @@
 #' @param sim The number of simulations identifies how many permutations should be made to randomly assemble communities with the same species richness as the community in question.
 #' @param plot Should a histogram for randomly assembled communities be plotted for each compared community, completed with a vertical abline representing the given community? By default, the plot is not rendered.
 #'
-#' @value A data frame consisting of a column of index values with samples in rows.
+#' @returns A data frame consisting of a column of index values with samples in rows.
 #' @examples
 #' # For this function, you must have a data frame created by "UniteData".
 #'

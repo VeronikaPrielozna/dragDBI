@@ -19,6 +19,9 @@ PotDBI (df, DBI_val, DBI_UD, type="def", NAval=F, plot=F)
 
 \item{plot}{Should a plot displaying a range between probable maximum and minimum values of sum of DBI and position of sum of DBI in the range be plotted? By default, the plot is not rendered.}
 }
+\value{
+A data frame consisting of a column of index values with samples in rows.
+}
 \description{
 Calculates DBI potential and real DBI potential for odonate community samples.
 }

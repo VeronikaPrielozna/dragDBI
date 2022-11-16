@@ -9,7 +9,7 @@
 #' @param NAval Logical, true in case of NA values in user-defined checklist.
 #' @param plot Should a plot displaying a range between probable maximum and minimum values of sum of DBI and position of sum of DBI in the range be plotted? By default, the plot is not rendered.
 #'
-#' @value A data frame consisting of a column of index values with samples in rows.
+#' @returns A data frame consisting of a column of index values with samples in rows.
 #' @examples
 #' # For this function, you must have a data frame created by "UniteData".
 #'
