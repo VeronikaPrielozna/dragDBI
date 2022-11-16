@@ -13,7 +13,6 @@
 #'Africa<-LoadData()
 
 LoadData<-function(){
-
   cat(paste("Copy data into clipboard"))
   cat("\n")
   invisible(readline(prompt="Press [enter] to continue"))

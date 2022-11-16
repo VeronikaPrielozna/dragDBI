@@ -2,6 +2,7 @@
 #'
 #' @description Calculates DBI potential and real DBI potential for odonate community samples.
 #' @usage PotDBI (df, DBI_val, DBI_UD, type="def", NAval=F, plot=F)
+#'
 #' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.
 #' @param type Indicates if ‘rpDBI’, i.e., real DBI potential or ‘pDBI’, i.e., DBI potential should be calculated. By default, DBI potential, real DBI potential, sum of DBI and probable maximum value of sum of DBI are calculated.
 #' @param DBI_val Indicates checklist which should be used for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. “UD” indicates user-defined/uploaded checklist.

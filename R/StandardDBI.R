@@ -2,6 +2,7 @@
 #'
 #' @description Calculates sum or mean of DBI for odonate community samples.
 #' @usage StandardDBI(df, UD=F, type ="mean", data="DBI", plot=F)
+#'
 #' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.
 #' @param UD Logical, true in case of user uploaded checklist is used. By default, false.
 #' @param type Indicates if sum of DBI (‘sum’) or mean of DBI (‘mean’) should be calculated. By default, the mean of DBI (‘mean’) is used.

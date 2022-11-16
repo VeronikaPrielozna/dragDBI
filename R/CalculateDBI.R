@@ -8,6 +8,7 @@
 #' @param DBI_UD In case that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.
 #' @param NAval Logical, true in case of NA values in user-defined checklist.
 #' @param sim The number of simulations identifies how many permutations should be made to randomly assemble communities with the same species richness as the community in question. The probability weight for each DBI is set as 2^-DBI, i.e., a species with a DBI higher by one unit has half the probability of being selected into a random community than a species with a lower DBI value.
+#'
 #' @returns A data frame consisting of the columns of score types  (sum of DBI, mean of DBI, DBI potential, real DBI potential, and permutational DBI potential) with samples in rows.
 #' @examples
 #' # For this function, you must have a data frame created by "UniteData".

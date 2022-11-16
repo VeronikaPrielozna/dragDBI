@@ -2,6 +2,7 @@
 #'
 #' @description Calculates permutational DBI potential for odonate community samples.
 #' @usage PermDBI(df, DBI_val, DBI_UD, NAval=T, sim=10000, plot=F)
+#'
 #' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.
 #' @param DBI_val Indicates checklist that is used for assembling random communities for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. ‘UD’ indicates user-defined/uploaded checklist.
 #' @param DBI_UD In case that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.
