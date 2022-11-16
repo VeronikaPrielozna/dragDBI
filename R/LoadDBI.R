@@ -8,7 +8,6 @@
 #'
 #' DBI_UD<-LoadDBI()
 
-
 LoadDBI<-function(){
   print("Copy data into clipboard")
   invisible(readline(prompt="Press [enter] to continue"))

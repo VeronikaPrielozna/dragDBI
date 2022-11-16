@@ -27,7 +27,6 @@
 #'
 #' PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
 
-
 PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   if (DBI_val=="CE"){
     table_package<-DBI_CE$TOTAL[-which(DBI_CE$TOTAL=="NA")]

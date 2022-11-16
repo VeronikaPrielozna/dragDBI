@@ -26,7 +26,6 @@
 #'
 #' StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
 
-
 StandardDBI<-function(df, UD=F, type="mean", data="DBI", plot=F){
   table1<-matrix(nrow = 1, ncol = 1)
   table_cal<-matrix(nrow = 1)

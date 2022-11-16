@@ -12,7 +12,6 @@
 #'
 #'Africa<-LoadData()
 
-
 LoadData<-function(){
 
   cat(paste("Copy data into clipboard"))

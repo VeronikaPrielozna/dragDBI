@@ -27,7 +27,6 @@
 #'
 #' PermDBI(UserDataDBI, DBI_val = "UD", DBI_UD, plot = T)
 
-
 PermDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000, plot=F){
   hist_names<-as.vector(names(df))
 
