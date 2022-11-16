@@ -1,8 +1,3 @@
----
-output:
-  github_document
----
-
 # dragDBI
 Calculation of Dragonfly Biotic Index for Odonata communities 
 
