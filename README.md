@@ -27,8 +27,17 @@ Dataset containing a list of taxa in the first column, and abundance or presence
 # Load library
 library(dragDBI)
 
-# Show the format of the built-in dataset
+# Show the format of the built-in dataset.
 head(Stormwaters)
+
+               Species Sto1 Sto2 Sto3 Sto4 Sto5 Sto6 Sto7 Sto8 Sto9 Sto10 
+1       Aeshna affinis    0    0    0    0    0    0    0    0    1     0   
+2        Aeshna cyanea    0    0    1    0    1    1    2    0    1     0   
+3         Aeshna mixta    5    1    2    0    0    4    3    2    3     3   
+4       Anax imperator    3    0    2    1    2    2    2    2    2     2   
+5      Anax parthenope    2    0    0    0    2    0    0    0    0     2   
+6 Calopteryx splendens    0    0    0    0    1    0    0    0    0     1   
+
 
 ```
 
