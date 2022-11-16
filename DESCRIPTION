@@ -1,13 +1,11 @@
 Package: dragDBI
 Type: Package
-Title: Calculation of Dragonfly Biotic Index for Odonata communities 
+Title: Calculation of Dragonfly Biotic Index for Odonata communities
 Version: 1.0
 Date: 2022-09-30
-Author: Prieložná V., Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E., Dolný A.
+Author: Prieložná V., Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E., Dolný A. (<https://orcid.org/0000-0002-6245-8442>)
 Maintainer: Veronika Prieložná <verca.prielozna@gmail.com>
-Description: The "dragDBI" package calculates a set of DBI values for dragonfly communities, based on species level identification. Indices that can be calculated are: sum DBI, mean DBI, potential DBI, true potential DBI, and permutational DBI. The DBI values can be calculated for Central European Dataset or South African Dataset. The definitions of these indices are given in the paper Šigutová et al. 2022, accessible under the link at the end of the text.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: The ‘dragDBI’ package calculates the set of DBI values for odonate communities, based on species-level identification.  Score types that can be calculated are sum DBI, mean DBI, DBI potential, real DBI potential,  and permutational DBI potential. The DBI values can be calculated for the Central European Dataset, South African Dataset, or user uploaded checklist with DBI values. Definitions of DBI score types  are given in Šigutová et al. (submitted).
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
@@ -18,3 +16,4 @@ Suggests:
     knitr
 URL: https://github.com/VeronikaPrielozna/dragDBI
 VignetteBuilder: knitr
+NeedsCompilation: no
