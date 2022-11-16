@@ -21,6 +21,9 @@
 #' # Unification of users data with users checklist with DBI values, uploaded by "LoadDBI" function.
 #'
 #' UserDataDBI<-UniteData(UserData, DBI_val = "UD", DBI_UD)
+#'
+#' @export UniteData
+#'
 
 UniteData<-function(df, DBI_val, DBI_UD){
   ms<-"This species is not in DBI dataset. Therefor this it will be removed."

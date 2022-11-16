@@ -32,4 +32,5 @@ AfricaDBI<-UniteData(Africa, DBI_val = "SA")
 # Unification of users data with users checklist with DBI values, uploaded by "LoadDBI" function.
 
 UserDataDBI<-UniteData(UserData, DBI_val = "UD", DBI_UD)
+
 }

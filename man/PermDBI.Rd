@@ -41,4 +41,5 @@ PermDBI(StormwaterDBI, DBI_val = "CE")
 # Calculate the permutational DBI potential for the user data with own DBI checklist and plotted results.
 
 PermDBI(UserDataDBI, DBI_val = "UD", DBI_UD, plot = T)
+
 }

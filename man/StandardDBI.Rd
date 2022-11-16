@@ -39,4 +39,5 @@ StandardDBI(StormwatersDBI, type = "sum")
 # Calculate the sum DBI score type for the user data with own DBI checklist and plotted results.
 
 StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
+
 }

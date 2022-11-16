@@ -1,7 +1,7 @@
 #' DBI potential for odonate communities
 #'
 #' @description Calculates DBI potential and real DBI potential for odonate community samples.
-#' @usage PotDBI (df, DBI_val, DBI_UD, type="def", NAval=F, plot=F)
+#' @usage PotDBI(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F)
 #'
 #' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.
 #' @param type Indicates if ‘rpDBI’, i.e., real DBI potential or ‘pDBI’, i.e., DBI potential should be calculated. By default, DBI potential, real DBI potential, sum of DBI and probable maximum value of sum of DBI are calculated.
@@ -12,21 +12,24 @@
 #'
 #' @returns A data frame consisting of a column of index values with samples in rows.
 #' @examples
-#' # For this function, you must have a data frame created by "UniteData".
+#' For this function, you must have a data frame created by "UniteData".
 #'
-#' # Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+#' Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
 #'
 #' StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
 #'
-#' # "StormwatersDBI" is then the input of the "CalculateDBI" function.
+#' "StormwatersDBI" is then the input of the "CalculateDBI" function.
 #'
-#' # Calculate the real DBI potential for the Highway stormwater and control ponds dataset.
+#' Calculate the real DBI potential for the Highway stormwater and control ponds dataset.
 #'
 #' PotDBI(StormwatersDBI, DBI_val = "CE", type = "rpDBI")
 #'
-#' # Calculate the real DBI potential for the user data with own DBI checklist and plotted results.
+#' Calculate the real DBI potential for the user data with own DBI checklist and plotted results.
 #'
 #' PotDBI(UserDataDBI, DBI_val = "UD", DBI_UD, type = "rpDBI", plot = T)
+#'
+#' @export PotDBI
+#'
 
 PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
   if (DBI_val=="CE"){

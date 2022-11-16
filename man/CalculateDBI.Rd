@@ -47,4 +47,5 @@ AfricaCAL<-CalculateDBI(AfricaDBI, DBI_val = "SA")
 # Calculate set of DBI score types for species from user data. In this case the input of "CalculateDBI" function is also users DBI checklist ("DBI_UD") Saved as "UserDataCAL".
 
 UserDataCAL<-CalculateDBI(UserDataDBI, DBI_val = "UD", DBI_UD)
+
 }

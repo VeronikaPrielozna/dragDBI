@@ -34,6 +34,9 @@
 #' # Calculate set of DBI score types for species from user data. In this case the input of "CalculateDBI" function is also users DBI checklist ("DBI_UD") Saved as "UserDataCAL".
 #'
 #' UserDataCAL<-CalculateDBI(UserDataDBI, DBI_val = "UD", DBI_UD)
+#'
+#' @export CalculateDBI
+#'
 
 CalculateDBI<-function(df, DBI_val, DBI_UD, NAval=F, sim=10000){
   hist_names<-as.vector(names(df))

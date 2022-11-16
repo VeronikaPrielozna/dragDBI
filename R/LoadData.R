@@ -11,6 +11,8 @@
 #' Uploading data containing species of South Africa. Saved as "Africa".
 #'
 #'Africa<-LoadData()
+#'
+#' @export LoadData
 
 LoadData<-function(){
   cat(paste("Copy data into clipboard"))

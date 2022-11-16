@@ -20,4 +20,5 @@ Europe<-LoadData()
 Uploading data containing species of South Africa. Saved as "Africa".
 
 Africa<-LoadData()
+
 }

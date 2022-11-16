@@ -7,6 +7,9 @@
 #' # Uploading user-defined DBI checklist. Saved as "DBI_UD".
 #'
 #' DBI_UD<-LoadDBI()
+#'
+#' @export LoadDBI
+#'
 
 LoadDBI<-function(){
   print("Copy data into clipboard")

@@ -26,6 +26,9 @@
 #' # Calculate the sum DBI score type for the user data with own DBI checklist and plotted results.
 #'
 #' StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
+#'
+#' @export StandardDBI
+#'
 
 StandardDBI<-function(df, UD=F, type="mean", data="DBI", plot=F){
   table1<-matrix(nrow = 1, ncol = 1)
