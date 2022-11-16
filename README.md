@@ -137,8 +137,8 @@ The package has been extensively tested using different test datasets, but if yo
 ### Citation
 To cite package ‘dragDBI’ in publications use:
 
-  Prieložná V., Pyszko P., Šigutová H., Bílková E. and Dolný A. (2022). dragDBI:
+  Prieložná V., Pyszko P., Šigutová H., Bílková E. & Dolný A., 2022: dragDBI:
   Calculation of Dragonfly Biotic Index for Odonata communities. R package version
-  1.0. https://github.com/VeronikaPrielozna/dragDBI.
+  1.0. Available from: https://github.com/VeronikaPrielozna/dragDBI.
 
 
