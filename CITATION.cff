@@ -14,11 +14,10 @@ authors:
 
 - family-names: "Eva"
   given-names: "Bílková"
-  orcid: "???"
 
 - family-names: "Aleš"
   given-names: "Dolný"
-  orcid: "???"
+  orcid: "<https://orcid.org/0000-0002-6245-8442>"
 
 title: " Calculation of Dragonfly Biotic Index for Odonata communities"
 version: 1.0
