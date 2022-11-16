@@ -1,6 +1,7 @@
 #' @title Central European checklist with DBI values
-#' @description Checklist of all Central European dragonfly species with assigned DBI values according to Dolný et al. 2012. Contains 68 species.
-#' @format A data frame
-#' @author Dolný et al., 2012
-#' @references Dolný, A., Harabiš, F., Bárta, D., Lhota, S., Drozd, P., 2012. Aquatic insects indicate terrestrial habitat degradation: Changes in taxonomical structure and functional diversity of dragonflies in tropical rainforest of East Kalimantan. Trop. Zool. 25, 141–157.
+#' @description Checklist of all Central European odonate species with assigned DBI values according to Dolný et al. 2010; contains 68 species (73 species in total, including DBI with NA values).
+#' @format Dataframe
+#' @author Dolný et al., 2010
+#' @references Harabiš, F., & Dolný, A. (2010). Využití vážek jako environmentálních indikátorů. In A. Dolný & F. Harabiš (Eds.), Vážky 2010. Sborník referátů XIII. celostátního semináře odonatologů v Podyjí (pp. 109–116). ZO ČSOP.
+
 "DBI_CE"

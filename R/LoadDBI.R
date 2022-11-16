@@ -1,14 +1,12 @@
 #' Uploading function for user-defined DBI checklist
-#'
-#' @param attrib
-#'
-#' @return
-#' @export
-#'
+#' @description The function allows for uploading a user-defined checklist of odonates with a user-defined set of DBI values.
+#' @usage LoadDBI()
+#' @value A data frame uploaded by user containing a list of taxa in the first column and user-defined DBI values in the second column.
 #' @examples
-#' # Uploading user-defind DBI checklist. Saved as DBI_MD.
+#' # Uploading user-defined DBI checklist. Saved as "DBI_UD".
 #'
-#' DBI_MD<-LoadDBI()
+#' DBI_UD<-LoadDBI()
+
 
 LoadDBI<-function(){
   print("Copy data into clipboard")
