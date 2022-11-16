@@ -4,16 +4,13 @@
 \alias{LoadDBI}
 \title{Uploading function for user-defined DBI checklist}
 \usage{
-LoadDBI(attrib = T)
-}
-\arguments{
-\item{attrib}{}
+LoadDBI()
 }
 \description{
-Uploading function for user-defined DBI checklist
+The function allows for uploading a user-defined checklist of odonates with a user-defined set of DBI values.
 }
 \examples{
-# Uploading user-defind DBI checklist. Saved as DBI_MD.
+# Uploading user-defined DBI checklist. Saved as "DBI_UD".
 
-DBI_MD<-LoadDBI()
+DBI_UD<-LoadDBI()
 }

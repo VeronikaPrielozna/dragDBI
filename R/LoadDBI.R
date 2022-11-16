@@ -1,4 +1,5 @@
 #' Uploading function for user-defined DBI checklist
+#'
 #' @description The function allows for uploading a user-defined checklist of odonates with a user-defined set of DBI values.
 #' @usage LoadDBI()
 #' @value A data frame uploaded by user containing a list of taxa in the first column and user-defined DBI values in the second column.

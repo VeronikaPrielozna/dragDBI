@@ -5,18 +5,18 @@
 \alias{DBI_CE}
 \title{Central European checklist with DBI values}
 \format{
-A data frame
+Dataframe
 }
 \usage{
 DBI_CE
 }
 \description{
-Checklist of all Central European dragonfly species with assigned DBI values according to Dolný et al. 2012. Contains 68 species.
+Checklist of all Central European odonate species with assigned DBI values according to Dolný et al. 2010; contains 68 species (73 species in total, including DBI with NA values).
 }
 \references{
-Dolný, A., Harabiš, F., Bárta, D., Lhota, S., Drozd, P., 2012. Aquatic insects indicate terrestrial habitat degradation: Changes in taxonomical structure and functional diversity of dragonflies in tropical rainforest of East Kalimantan. Trop. Zool. 25, 141–157.
+Harabiš, F., & Dolný, A. (2010). Využití vážek jako environmentálních indikátorů. In A. Dolný & F. Harabiš (Eds.), Vážky 2010. Sborník referátů XIII. celostátního semináře odonatologů v Podyjí (pp. 109–116). ZO ČSOP.
 }
 \author{
-Dolný et al., 2012
+Dolný et al., 2010
 }
 \keyword{datasets}

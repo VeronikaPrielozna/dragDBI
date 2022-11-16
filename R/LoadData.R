@@ -1,20 +1,17 @@
 #' Data uploading function
 #'
-#' @param attrib
-#' @param na2null
-#'
-#' @return
-#' @export
-#'
+#' @description The function allows for simple loading of user data and converting NA values into null.
+#' @usage LoadData()
+#' @value A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
 #' @examples
-#' # Uploading data containing species of Central Europe. Saved as x_CE.
+#' Uploading data containing species of Central Europe. Saved as "Europe".
 #'
-#' x_CE<-LoadData()
+#'Europe<-LoadData()
 #'
+#' Uploading data containing species of South Africa. Saved as "Africa".
 #'
-#' # Uploading data containing species of South Africa. Saved as x_SA.
-#'
-#' x_SA<-LoadData()
+#'Africa<-LoadData()
+
 
 LoadData<-function(){
 

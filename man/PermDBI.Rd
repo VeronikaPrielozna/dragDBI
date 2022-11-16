@@ -4,7 +4,7 @@
 \alias{PermDBI}
 \title{Permutational DBI and potential for dragonfly communities}
 \usage{
-PermDBI(df, DBI_val, DBI_UD, NAval = T, sim = 10000, plot = F)
+PermDBI(df, DBI_val, DBI_UD, NAval = F, sim = 10000, plot = F)
 }
 \arguments{
 \item{plot}{}

@@ -5,7 +5,7 @@
 \alias{Stormwaters}
 \title{Highway stormwater and control ponds dataset}
 \format{
-A data frame
+Dataframe
 }
 \usage{
 Stormwaters

@@ -5,18 +5,18 @@
 \alias{DBI_SA}
 \title{South African checklist with DBI values}
 \format{
-A data frame
+Dataframe
 }
 \usage{
 DBI_SA
 }
 \description{
-Checklist of all South Africa dragonfly species with assigned DBI values according to Samways et al. 2016. Contains 164 species.
+Checklist of all South African odonate  species with assigned DBI values according to Samways et al., 2016; contains 167 species.
 }
 \references{
 Samways, M.J., Simaika, J.P., 2016. Manual of freshwater assessment for South Africa: Dragonfly Biotic Index. Suricata 2. South African National Biodiversity Institute, Pretoria.
 }
 \author{
-Samways et al, 2016
+Samways et al., 2016
 }
 \keyword{datasets}
