@@ -89,17 +89,17 @@ PotDBI<-function(df, DBI_val, DBI_UD, type="def", NAval=F, plot=F){
 
   if (type=="def"){
     table3<-table2
-    CN<-c("pDBI", "tpDBI", "SumDBI", "MaxsumDBI", "MinsumDBI")
+    CN<-c("DBIpot", "RealDBIpot", "SumDBI", "MaxsumDBI", "MinsumDBI")
   }
 
-  if(type=="tpDBI"){
+  if(type=="rpDBI"){
     table3<-table2[,2, drop=F]
-    CN<-"tpDBI"
+    CN<-"RealDBIpot"
   }
 
   if(type=="pDBI"){
     table3<-table2[,1,drop=F]
-    CN<-"pDBI"
+    CN<-"DBIpot"
   }
 
   COLnam<-as.vector(colnames(df))
