@@ -102,5 +102,6 @@ StandardDBI<-function(df, UD=F, type="mean", data="DBI", plot=F){
     barplot(as.vector(table2[,1]), ylim = c(0,(max(table2[,1]) + yval)),
     las = 2, ylab = rname, font.main = 1, names.arg = rownames(table2))
   }
+  print(table2)
   table2
 }
