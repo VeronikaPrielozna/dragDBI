@@ -119,7 +119,10 @@ UniteData<-function(df, DBI_val, DBI_UD){
 
 
   na_val<-which(is.na(table_user$TOTAL))
-  print(na_val)
+  print(which(is.na(table_user$TOTAL)))
+  print(which(table_user$TOTAL=="NA"))
+
+
   if(length(na_val)>0){
     for (m in 1:length(na_val)){
       message(paste("DBI value of species", table_user[m,1], "is NA, propably because of small amount of data.", "\n",
