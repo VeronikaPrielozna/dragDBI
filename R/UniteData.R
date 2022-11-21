@@ -118,9 +118,10 @@ UniteData<-function(df, DBI_val, DBI_UD){
   }
 
 
-  na_val<-which(is.na(table_user$TOTAL))
-  print(which(is.na(table_user$TOTAL)))
-  print(which(table_user$TOTAL=="NA"))
+  na_val<-which(table_user$TOTAL=="NA"))
+  # print(which(is.na(table_user$TOTAL)))
+  # print(which(table_user$TOTAL=="NA"))
+
 
 
   if(length(na_val)>0){
