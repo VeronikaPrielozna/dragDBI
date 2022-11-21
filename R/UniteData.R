@@ -104,41 +104,35 @@ UniteData<-function(df, DBI_val, DBI_UD){
       else{
         table_user[j,1]<-tabulka[answ,]
       }
-
     }
-
     table_user[j,COLname]<-table_package[match(table_user[j,1], table_package[,1]), COLname]
   }
 
-  if (DBI_val=="UD"){
-    na_val<-which(table_user[,2]=="NA")
-  }
-
-  if (DBI_val!="UD"){
-    na_val<-which(table_user[,5]=="NA")
-  }
-
-  if(length(na_val)>0){
-    for (m in na_val){
-      message(paste("DBI value of species", table_user[m, 1], "is NA, propably because of small amount of data."))
-      cat("\n")
-      message("Therefor this species will be removed.")
-      table_user<-table_user[-(na_val),]
-    }
-  }
-  cat("\n")
-  Species<-as.factor(table_user[,1])
-  table_user<-as.data.frame(sapply(table_user[2:ncol(table_user)], as.numeric))
-  table_user<-data.frame(Species, table_user)
-
-  if (NA %in% table_user$TOTAL){
-    table_user<-table_user[-which(table_user[,1]=="NA"),]
-    message("Those species was not in the checklist:","\n")
+  if (length(miss)>0){
+    message("Those species were not in the checklist:","\n")
     for (o in 1:length(miss)){
       message(paste("\t\t\t\t\t",miss[o]))
     }
     message("Therefor, they will be removed.","\n")
+    table_user<-table_user[-which(table_user[,1]=="NA"),]
   }
+
+
+  na_val<-which(is.na(table_user$TOTAL))
+
+  if(length(na_val)>0){
+    for (m in 1:length(na_val)){
+      message(paste("DBI value of species", table_user[m,1], "is NA, propably because of small amount of data.", "\n",
+                    "Therefor this species will be removed."))
+      cat("\n")
+      table_user<-table_user[-(na_val),]
+    }
+  }
+
+  cat("\n")
+  Species<-as.factor(table_user[,1])
+  table_user<-as.data.frame(sapply(table_user[2:ncol(table_user)], as.numeric))
+  table_user<-data.frame(Species, table_user)
   table_user<-table_user[, c(1,((ncol(table_user)-COLnum1)):ncol(table_user), 2:((ncol(table_user))-COLnum2+COLnum))]
   print(table_user)
   table_user
