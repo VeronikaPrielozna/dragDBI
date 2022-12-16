@@ -30,7 +30,6 @@ LoadDBI<-function(){
            finally = {
              colnames(DBI_UD)<-c("Species", "DBI")
              cat(paste("Number of species:",nrow(DBI_UD),"\n"))
-             cat(paste("Your data: ","\n"))
            }
   )
   return(DBI_UD)
