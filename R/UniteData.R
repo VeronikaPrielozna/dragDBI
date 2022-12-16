@@ -134,6 +134,5 @@ UniteData<-function(df, DBI_val, DBI_UD){
   table_user<-as.data.frame(sapply(table_user[2:ncol(table_user)], as.numeric))
   table_user<-data.frame(Species, table_user)
   table_user<-table_user[, c(1,((ncol(table_user)-COLnum1)):ncol(table_user), 2:((ncol(table_user))-COLnum2+COLnum))]
-  print(table_user)
-  table_user
+  return(table_user)
 }

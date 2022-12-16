@@ -37,6 +37,5 @@ LoadData<-function(){
              cat(paste("Number of samples: ", ncol(x)-1,"\n"))
           }
   )
-  print(x)
-  x
+  return(x)
 }

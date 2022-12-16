@@ -33,6 +33,5 @@ LoadDBI<-function(){
              cat(paste("Your data: ","\n"))
            }
   )
-  print(DBI_UD)
-  DBI_UD
+  return(DBI_UD)
 }
