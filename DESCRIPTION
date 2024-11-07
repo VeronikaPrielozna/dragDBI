@@ -3,7 +3,7 @@ Type: Package
 Title: Calculation of Dragonfly Biotic Index for Odonata communities
 Version: 1.0.0
 Date: 2022-09-30
-Author: Prieložná V., Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E., Dolný A. (<https://orcid.org/0000-0002-6245-8442>)
+Author: Prieložná V.(<https://orcid.org/0009-0008-7612-7020>), Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E., Dolný A. (<https://orcid.org/0000-0002-6245-8442>)
 Maintainer: Veronika Prieložná <verca.prielozna@gmail.com>
 Description: The ‘dragDBI’ package calculates the set of DBI values for odonate communities, based on species-level identification.  Score types that can be calculated are sum DBI, mean DBI, DBI potential, real DBI potential,  and permutational DBI potential. The DBI values can be calculated for the Central European Dataset, South African Dataset, or user uploaded checklist with DBI values. Definitions of DBI score types  are given in Šigutová et al. (submitted).
 Encoding: UTF-8
