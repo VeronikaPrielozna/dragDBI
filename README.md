@@ -2,22 +2,27 @@
 Calculation of Dragonfly Biotic Index for Odonata communities 
 
 ### Introduction
-The ‘dragDBI’ package provides the main calculation function, wrapper functions for easy calculation of individual DBI score types, reference checklists with DBI values for Central European and South African odonate species, and three data-uploading functions that can be used for i) loading data, ii) quality-checking, annotation of DBI values to particular species, and preparation of data for analysis, or iii) uploading a set of user-defined DBI values.
+The dragDBI package provides the main calculation function, wrapper functions for the easy computation of individual DBI score types, and reference checklists with DBI values for odonate species from seven Central European countries and South Africa. The newly added checklist includes DBI values for Austria, Czechia, Germany, Poland, Slovakia, Slovenia, and Switzerland.
+
+Additionally, the package introduces three data-uploading functions designed for i) loading data, ii) performing quality checks, annotating DBI values to specific species, and preparing data for analysis, and iii) uploading a set of user-defined DBI values.
 
 ### Installation 
-The current release version (1.0.) of the package can be installed from GitHub. The homepage of the package is https://github.com/VeronikaPrielozna/dragDBI. To install the package, you need to install the ‘devtools’ package first.
+The current release version (1.0.1) of the package can be installed from GitHub. The homepage of the package is https://github.com/VeronikaPrielozna/dragDBI. To install the package, you need to install the ‘devtools’ package first.
 
 
 ```{r, eval = FALSE}
 install.packages("devtools")
 ```
-
 Then you need to load the ‘devtools’ package and use the ‘install_github’ function. For building vignettes, the argument build_vignettes must be equal to ‘T’. 
 
 ```{r, eval = FALSE}
 library("devtools")
 
-install_github("VeronikaPrielozna/dragDBI", build_vignettes = T)
+install_github("VeronikaPrielozna/dragDBI", ref = "v1.0.1", build_vignettes = T)
+```
+To download the development version of the dragDBI package from GitHub, use the following R code:
+```{r, eval = FALSE}
+install_github("VeronikaPrielozna/dragDBI", ref = "main")
 ```
 
 ### Input format
