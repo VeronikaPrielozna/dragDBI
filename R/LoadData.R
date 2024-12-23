@@ -1,26 +1,36 @@
 #' Data uploading function
 #'
-#' @description The function allows for simple loading of user data and converting NA values into null.
+#' @description The function allows for simple loading of user data and converting NA values into
+#' null.
 #' @usage LoadData()
-#' @returns  A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
+#'
+#' @importFrom graphics abline arrows axis barplot hist par points title
+#' @importFrom utils read.table
+#'
+#' @returns A data frame uploaded by the user containing a list of taxa in the first column, and
+#' abundance or presence/absence data in following columns, with sample names in the column header.
 #' @examples
-#' Uploading data containing species of Central Europe. Saved as "Europe".
+#' # Uploading data containing species of Czech Republic. Saved as "Czech".
 #'
-#'Europe<-LoadData()
+#' \dontrun{
+#' Czech <- LoadData()
 #'
-#' Uploading data containing species of South Africa. Saved as "Africa".
+#' # Uploading data containing species of South Africa. Saved as "Africa".
 #'
-#'Africa<-LoadData()
+#' Africa <- LoadData()
+#' }
 #'
 #' @export LoadData
+
 
 LoadData<-function(){
   cat(paste("Copy data into clipboard"))
   cat("\n")
+  message("Warning! Species must be in rows and samples in columns!")
   invisible(readline(prompt="Press [enter] to continue"))
   tryCatch(silent=T,
            expr = {
-             x<-read.table("clipboard", h=T, as.is=T, sep = "\t")
+             x<-read.table("clipboard", header = TRUE, as.is = TRUE, sep = "\t")
              message("Dataset successfully uploaded.")
            },
            error = function(e){

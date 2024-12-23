@@ -1,11 +1,11 @@
 Package: dragDBI
 Type: Package
 Title: Calculation of Dragonfly Biotic Index for Odonata communities
-Version: 1.0.0
-Date: 2022-09-30
-Author: Prieložná V.(<https://orcid.org/0009-0008-7612-7020>), Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E.(<https://orcid.org/0000-0001-8967-5079>)), Dolný A. (<https://orcid.org/0000-0002-6245-8442>)
+Version: 1.0.1
+Date: 2024-11-30
+Author: Prieložná V.(<https://orcid.org/0009-0008-7612-7020>), Pyszko P. (<https://orcid.org/0000-0002-3743-7201>), Šigutová H. (<https://orcid.org/0000-0003-1134-248X>), Bílková E.(<https://orcid.org/0000-0001-8967-5079>), Dolný A. (<https://orcid.org/0000-0002-6245-8442>)
 Maintainer: Veronika Prieložná <verca.prielozna@gmail.com>
-Description: The ‘dragDBI’ package calculates the set of DBI values for odonate communities, based on species-level identification.  Score types that can be calculated are sum DBI, mean DBI, DBI potential, real DBI potential,  and permutational DBI potential. The DBI values can be calculated for the Central European Dataset, South African Dataset, or user uploaded checklist with DBI values. Definitions of DBI score types  are given in Šigutová et al. (submitted).
+Description: The ‘dragDBI’ package calculates a set of DBI values for odonate communities based on species-level identification. Score types that can be calculated include sum DBI, mean DBI, DBI potential, real DBI potential, and permutational DBI potential. The DBI values can be calculated for the South African Dataset, or a user-uploaded checklist with DBI values. Additionally, the package now includes DBI values for Austria, Switzerland, Czechia, Germany, Poland, Slovakia, and Slovenia based on Bílková et al. (submitted). Definitions of DBI score types are provided in Šigutová et al., 2024.
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
@@ -14,8 +14,14 @@ Depends:
 LazyData: true
 Suggests: 
     knitr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0), 
+    rmarkdown
+Imports:
+    graphics,
+    utils
 URL: https://github.com/VeronikaPrielozna/dragDBI
-VignetteBuilder: knitr
+VignetteBuilder: knitr, rmarkdown
 NeedsCompilation: no
 Config/testthat/edition: 3
+License: GPL (>= 3)
+

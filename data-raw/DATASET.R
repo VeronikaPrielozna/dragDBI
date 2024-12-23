@@ -12,3 +12,6 @@ DBI_SA<-read_excel("data-raw/DBI_SA.xlsx")
 usethis::use_data(DBI_SA, overwrite = TRUE)
 sinew::makeOxygen(DBI_SA, add_fields = "source")
 
+DBI_CEC<-read_excel("data-raw/DBI_CEC.xlsx")
+usethis::use_data(DBI_CEC, overwrite = TRUE)
+sinew::makeOxygen(DBI_CEC, add_fields = "source")

@@ -1,34 +1,45 @@
 #' Standard DBI scores for odonate communities
 #'
 #' @description Calculates sum or mean of DBI for odonate community samples.
-#' @usage StandardDBI(df, UD=F, type ="mean", data="DBI", plot=F)
+#' @usage StandardDBI(df, UD = F, type = "mean", data = "DBI", plot = F)
 #'
-#' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first column, followed by the columns with the values of distribution, threat and sensitivity subindices (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns of abundances with sample names in the rows.
+#' @importFrom graphics abline arrows axis barplot hist par points title
+#' @importFrom utils read.table
+#'
+#' @param df A data frame created by ‘UniteData’ function, containing a list of taxa in the first
+#' column, followed by the columns with the values of distribution, threat and sensitivity subindices
+#' (in case of using a pre-set checklist via ‘UniteData’ function), column of DBI values, and columns
+#' of abundances with sample names in the rows.
 #' @param UD Logical, true in case of user uploaded checklist is used. By default, false.
-#' @param type Indicates if sum of DBI (‘sum’) or mean of DBI (‘mean’) should be calculated. By default, the mean of DBI (‘mean’) is used.
-#' @param data In case that user checklist is not used in ‘UniteData’ function, the ‘StandardDBI’ function is able to calculate with DBI values (‘DBI’), values of sensitivity (‘SENS’), threat (‘THR’) and distribution (‘DIST’).
-#' @param plot Should a barplot for results of calculations be plotted? By default, the plot is not rendered.
+#' @param type Indicates if sum of DBI (‘sum’) or mean of DBI (‘mean’) should be calculated. By
+#' default, the mean of DBI (‘mean’) is used.
+#' @param data In case that user checklist is not used in ‘UniteData’ function, the ‘StandardDBI’
+#' function is able to calculate with DBI values (‘DBI’), values of sensitivity (‘SENS’), threat
+#' (‘THR’) and distribution (‘DIST’).
+#' @param plot Should a barplot for results of calculations be plotted? By default, the plot is not
+#' rendered.
 #'
 #' @returns A data frame consisting of a column of index values with samples in rows.
 #' @examples
 #' # For this function, you must have a data frame created by "UniteData".
 #'
-#' # Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
-#'
-#' StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
+#' # Unification of Highway stormwater and control ponds dataset and Central European checklist
+#' # with DBI values. Saved as "StormwatersDBI".
+#' \dontrun{
+#' StormwatersDBI <- UniteData(Stormwaters, DBI_val = "CE")
 #'
 #' # "StormwatersDBI" is then the input of the "StandardDBI" function.
 #'
-#' # Calculate the sum DBI score type for the Highway stormwater and control ponds dataset.
+# Calculate the sum DBI score type for the Highway stormwater and control ponds dataset.
 #'
 #' StandardDBI(StormwatersDBI, type = "sum")
 #'
 #' # Calculate the sum DBI score type for the user data with own DBI checklist and plotted results.
 #'
 #' StandardDBI(UserDataDBI, UD = T, type = "sum", plot = T)
-#'
+#'}
 #' @export StandardDBI
-#'
+
 
 StandardDBI<-function(df, UD=F, type="mean", data="DBI", plot=F){
   table1<-matrix(nrow = 1, ncol = 1)

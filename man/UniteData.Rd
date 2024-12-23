@@ -2,34 +2,60 @@
 % Please edit documentation in R/UniteData.R
 \name{UniteData}
 \alias{UniteData}
-\title{Unification   of user dataset and DBI data}
+\title{Unification of user dataset and DBI data}
 \usage{
 UniteData(df, DBI_val, DBI_UD)
 }
 \arguments{
-\item{df}{A data frame containing uploaded user dataset (list of taxa in first column, followed by columns of abundances with sample names in a header).}
+\item{df}{A data frame containing uploaded user dataset (list of taxa in first column, followed
+by columns of abundances with sample names in a header).}
 
-\item{DBI_val}{Indicates checklist which should be used for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. ‘UD’ indicates user defined/uploaded checklist.}
+\item{DBI_val}{Indicates the checklist to be used for comparison. ‘SA’ refers to the South
+African checklist with DBI values (Samways et al., 2016). ‘AU’ refers to the Austrian
+checklist, ‘CHE’ to the Swiss checklist, ‘CZ’ to the Czech checklist, ‘DE’ to the German
+checklist, ‘PL’ to the Polish checklist, ‘SK’ to the Slovak checklist, and ‘SLO’ to the
+Slovenian checklist, all with the DBI values (Bílková et al., submitted). ‘UD’ refers to a
+user-defined or uploaded checklist.}
 
-\item{DBI_UD}{In case, that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.}
+\item{DBI_UD}{In case, that ‘UD’ is defined for the type, the name of user-loaded data frame
+should be specified here.}
 }
 \value{
-A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
+A data frame consisting of user dataset and checklist of DBI values. In case that
+‘AU’, ‘CHE’, ‘CZ’, ‘DE’, ‘PL’, ‘SK’, ‘SLO’ or ‘SA’ is defined for the type, there will be
+also columns with values of distribution, threat, and sensitivity of the species.
 }
 \description{
-The function allows for quality-checking of the correctness of species naming, and automated assignment of DBI values to the user dataset based on the comparison with checklists with DBI values for Central European or South African dragonflies. It checks the list of taxa present in the sample dataset against the checklist of taxa within the package to identify any non-scoring taxa in the samples (or spelling mistakes).
+The function allows for quality-checking of the correctness of species naming,
+and automated assignment of DBI values to the user dataset based on the comparison with
+checklists with DBI values for Central European or South African dragonflies. It checks the
+list of taxa present in the sample dataset against the checklist of taxa within the package
+to identify any non-scoring taxa in the samples (or spelling mistakes).
 }
 \examples{
-# Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+# Unification of Highway stormwater and control ponds dataset and Czech checklist with DBI
+# values. Saved as "StormwatersDBI".
 
-StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
+data("Stormwaters", package = "dragDBI")
 
-# Unification of species of South Africa with South African checklist with DBI values. Saved as "AfricaDBI".
+StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CZ")
+
+\dontrun{
+# Unification of species of South Africa with South African checklist with DBI values.
+# Saved as "AfricaDBI".
 
 AfricaDBI<-UniteData(Africa, DBI_val = "SA")
 
-# Unification of users data with users checklist with DBI values, uploaded by "LoadDBI" function.
+# Unification of species of Austria with Austrian checklist with DBI values.
+# Saved as "AustriaDBI".
+
+AustriaDBI<-UniteData(Austria, DBI_val = "AU")
+
+# Unification of users data with users checklist with DBI values, uploaded by "LoadDBI"
+# function.
 
 UserDataDBI<-UniteData(UserData, DBI_val = "UD", DBI_UD)
+
+}
 
 }

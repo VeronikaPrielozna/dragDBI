@@ -1,40 +1,83 @@
-#' Unification   of user dataset and DBI data
+#' Unification of user dataset and DBI data
 #'
-#' @description The function allows for quality-checking of the correctness of species naming, and automated assignment of DBI values to the user dataset based on the comparison with checklists with DBI values for Central European or South African dragonflies. It checks the list of taxa present in the sample dataset against the checklist of taxa within the package to identify any non-scoring taxa in the samples (or spelling mistakes).
+#' @description The function allows for quality-checking of the correctness of species naming,
+#' and automated assignment of DBI values to the user dataset based on the comparison with
+#' checklists with DBI values for Central European or South African dragonflies. It checks the
+#' list of taxa present in the sample dataset against the checklist of taxa within the package
+#' to identify any non-scoring taxa in the samples (or spelling mistakes).
+#'
 #' @usage UniteData(df, DBI_val, DBI_UD)
 #'
-#' @param df A data frame containing uploaded user dataset (list of taxa in first column, followed by columns of abundances with sample names in a header).
-#' @param DBI_val Indicates checklist which should be used for comparison. ‘CE’ indicates the Central European checklist with DBI values. ‘SA’ indicates the South African checklist with DBI values. ‘UD’ indicates user defined/uploaded checklist.
-#' @param DBI_UD In case, that ‘UD’ is defined for the type, the name of user-loaded data frame should be specified here.
+#' @importFrom graphics abline arrows axis barplot hist par points title
+#' @importFrom utils read.table
+#' @importFrom utils data
 #'
-#' @returns A data frame consisting of user dataset and checklist of DBI values. In case that ‘CE’ or ‘SA’ is defined for the type, there will be also columns with values of distribution, threat, and sensitivity of the species.
+#' @param df A data frame containing uploaded user dataset (list of taxa in first column, followed
+#' by columns of abundances with sample names in a header).
+#' @param DBI_val Indicates the checklist to be used for comparison. ‘SA’ refers to the South
+#' African checklist with DBI values (Samways et al., 2016). ‘AU’ refers to the Austrian
+#' checklist, ‘CHE’ to the Swiss checklist, ‘CZ’ to the Czech checklist, ‘DE’ to the German
+#' checklist, ‘PL’ to the Polish checklist, ‘SK’ to the Slovak checklist, and ‘SLO’ to the
+#' Slovenian checklist, all with the DBI values (Bílková et al., submitted). ‘UD’ refers to a
+#' user-defined or uploaded checklist.
+#' @param DBI_UD In case, that ‘UD’ is defined for the type, the name of user-loaded data frame
+#' should be specified here.
+#'
+#' @returns A data frame consisting of user dataset and checklist of DBI values. In case that
+#' ‘AU’, ‘CHE’, ‘CZ’, ‘DE’, ‘PL’, ‘SK’, ‘SLO’ or ‘SA’ is defined for the type, there will be
+#' also columns with values of distribution, threat, and sensitivity of the species.
+#'
 #' @examples
-#' # Unification of Highway stormwater and control ponds dataset and Central European checklist with DBI values. Saved as "StormwatersDBI".
+#' # Unification of Highway stormwater and control ponds dataset and Czech checklist with DBI
+#' # values. Saved as "StormwatersDBI".
 #'
-#' StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CE")
+#' data("Stormwaters", package = "dragDBI")
 #'
-#' # Unification of species of South Africa with South African checklist with DBI values. Saved as "AfricaDBI".
+#' StormwatersDBI<-UniteData(Stormwaters, DBI_val = "CZ")
+#'
+#' \dontrun{
+#' # Unification of species of South Africa with South African checklist with DBI values.
+#' # Saved as "AfricaDBI".
 #'
 #' AfricaDBI<-UniteData(Africa, DBI_val = "SA")
 #'
-#' # Unification of users data with users checklist with DBI values, uploaded by "LoadDBI" function.
+#' # Unification of species of Austria with Austrian checklist with DBI values.
+#' # Saved as "AustriaDBI".
+#'
+#' AustriaDBI<-UniteData(Austria, DBI_val = "AU")
+#'
+#' # Unification of users data with users checklist with DBI values, uploaded by "LoadDBI"
+#' # function.
 #'
 #' UserDataDBI<-UniteData(UserData, DBI_val = "UD", DBI_UD)
 #'
-#' @export UniteData
+#'}
 #'
+#' @export UniteData
+
 
 UniteData<-function(df, DBI_val, DBI_UD){
+  data(list = c("DBI_SA", "DBI_CE", "DBI_CEC"), package = "dragDBI", envir = environment())
+
   ms<-"This species is not in DBI dataset. Therefor this it will be removed."
   miss<-vector()
   table_user<-df
   table_user[,1]<-gsub("[_]", " ", table_user[,1])
 
-  if (DBI_val=="CE"){
-    table_package<-DBI_CE
-  }
   if(DBI_val=="SA"){
     table_package<-DBI_SA
+  }
+  if (DBI_val %in% c("AU", "CHE", "CZ", "DE", "PL", "SK", "SLO")) {
+
+    DBI_CEC <- DBI_CEC[, !names(DBI_CEC) %in% "Author"]
+
+    DBI_CEC <- split(DBI_CEC, DBI_CEC$Country)
+    DBI_CEC <- lapply(DBI_CEC, function(tab) {
+      tab <- tab[, !names(tab) %in% "Country"]
+      return(tab)
+    })
+    as.data.frame(DBI_CEC)
+    table_package <- DBI_CEC[[DBI_val]]
   }
   if(DBI_val=="UD"){
     table_package<-DBI_UD
@@ -82,7 +125,20 @@ UniteData<-function(df, DBI_val, DBI_UD){
             vector_druhy<-c(vector_druhy,stejny_druh)
           }
         }
+
       }
+
+      druhe_slovo <- split[[1]][2]
+
+      for (m in 1:length(table_package[, 1])) {
+        nazev <- table_package[m, 1]
+        split_nazev <- strsplit(nazev, " ")
+        druhe_nazev <- split_nazev[[1]][2]
+        if (!is.null(druhe_nazev) && druhe_slovo == druhe_nazev && !(nazev %in% vector_druhy)) {
+          vector_druhy <- c(vector_druhy, nazev)
+        }
+      }
+
       tabulka<-as.data.frame(as.matrix(vector_druhy))
       tabulka<-rbind(tabulka, c("None!"))
       colnames(tabulka)<-c("Species")
@@ -113,7 +169,7 @@ UniteData<-function(df, DBI_val, DBI_UD){
     for (o in 1:length(miss)){
       message(paste("\t\t\t\t\t",miss[o]))
     }
-    message("Therefor, they will be removed.","\n")
+    message("Therefore, they will be removed.","\n")
     table_user<-table_user[-which(table_user[,1]=="NA"),]
   }
 
@@ -122,11 +178,11 @@ UniteData<-function(df, DBI_val, DBI_UD){
 
   if(length(na_val)>0){
     for (m in 1:length(na_val)){
-      message(paste("DBI value of species", table_user[m,1], "is NA, propably because of small amount of data.", "\n",
-                    "Therefor this species will be removed."))
+      message(paste("DBI value of species", table_user[na_val[m],1], "is NA, propably because of small amount of data.", "\n",
+                    "Therefore this species will be removed."))
       cat("\n")
-      table_user<-table_user[-(na_val),]
-    }
+     }
+    table_user<-table_user[-(na_val),]
   }
 
   cat("\n")

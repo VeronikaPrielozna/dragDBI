@@ -7,18 +7,22 @@
 LoadData()
 }
 \value{
-A data frame uploaded by the user containing a list of taxa in the first column, and abundance or presence/absence data in following columns, with sample names in the column header.
+A data frame uploaded by the user containing a list of taxa in the first column, and
+abundance or presence/absence data in following columns, with sample names in the column header.
 }
 \description{
-The function allows for simple loading of user data and converting NA values into null.
+The function allows for simple loading of user data and converting NA values into
+null.
 }
 \examples{
-Uploading data containing species of Central Europe. Saved as "Europe".
+# Uploading data containing species of Czech Republic. Saved as "Czech".
 
-Europe<-LoadData()
+\dontrun{
+Czech <- LoadData()
 
-Uploading data containing species of South Africa. Saved as "Africa".
+# Uploading data containing species of South Africa. Saved as "Africa".
 
-Africa<-LoadData()
+Africa <- LoadData()
+}
 
 }
